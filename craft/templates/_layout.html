@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+	<link rel="home" href="{{ siteUrl }}" />
+	<meta name="description" content="">
+    <link rel="icon" href="{{ siteUrl }}favicon.ico?v=2" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700|Quattrocento:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ siteUrl }}css/jquery-ui.min.css">
+    <link rel="stylesheet" href="{{ siteUrl }}css/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="{{ siteUrl }}css/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="{{ siteUrl }}css/normalize.css">
+    <link rel="stylesheet" href="{{ siteUrl }}css/main.css">
+</head>
+
+<body {% if body is defined %} class="{{ body }}" {% endif %}">
+	<div id="container">
+	<header {% if craft.request.getLastSegment() == '' %}class="home-page"{% endif %}>
+            <div class="logo">
+                <a {% if craft.request.getLastSegment() != '' %}href="/staging"{% endif %}><span></span></a>
+            </div>
+            <nav>
+                <ul class="desktop left">
+                    <li><a href="{{ siteUrl }}about" name="about">About</a></li>
+                    <li><a href="{{ siteUrl }}gallery" name="gallery">Gallery</a></li>
+                    <li><a href="{{ siteUrl }}experiences" name="experience">Experiences</a></li>
+                </ul>
+                <ul class="desktop right">
+                    <li><a href="{{ siteUrl }}products" name="products">Products</a></li>
+                    <li><a href="{{ siteUrl }}blog" name="blog">Blog</a></li>
+                    <li><a href="{{ siteUrl }}contact" name="contact">Contact</a></li>
+                </ul>
+                <ul class="mobile mobile__nav--container">
+                    <li class="logo"><a href="{{ siteUrl }}staging"><span></span></a></li>
+                    <li class="mobile mobile__icon"></li>
+                </ul>
+            </nav>
+            <div id="callus">Call Us!</div>
+        </header>
+
+		<div id="content" role="main">
+			{% block content %}
+				
+			{% endblock %}
+		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="{{ siteUrl }}/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8lW905XzeDGEZM15Bi8OtFXbIroraUdo"></script>
+
+        <script src="{{ siteUrl }}js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+		<script src="{{ siteUrl }}js/vendor/jquery-ui.min.js"></script>
+		<script src="{{ siteUrl }}js/vendor/jquery.sticky.js"></script>
+		<script src="{{ siteUrl }}js/vendor/slick.min.js"></script>
+		<script src="{{ siteUrl }}js/vendor/parallax.min.js"></script>
+		<script src="{{ siteUrl }}js/vendor/Carousel.js"></script>
+		<script src="{{ siteUrl }}js/vendor/TweenMax.min.js"></script>
+		<script src="{{ siteUrl }}js/plugins.js"></script>
+		<script src="{{ siteUrl }}js/main.js"></script>
+		<script>
+		    $(window).load(function(){
+		      $("header").sticky({ topSpacing: 0 });
+		    });
+		</script>
+		 <script>
+			$(function(){
+				Carousel.init($("#carousel"));
+				$("#carousel").init();
+			});
+		</script>
+	</div>
+</body>
+</html>

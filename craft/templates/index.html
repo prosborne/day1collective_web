@@ -1,0 +1,24 @@
+{% extends "_layout" %}
+{% set body = "home" %}
+
+{% block content %}
+
+	{{ entry.body }}
+	<section id="home_content">
+		<div class="wood-floor" id="woodFloor">
+			<a href="{{ siteUrl }}contact" name="contact"><div class="wood-floor__desk"></div></a>
+			<a href="{{ siteUrl }}about" name="about"><div class="wood-floor__couch"></div></a>
+			<a href="{{ siteUrl }}experiences" name="experiences"><div class="wood-floor__workstation"></div></a>
+		</div>
+
+		<div class="shade" id="shade">
+			<a href="{{ siteUrl }}products" name="products"><div class="shade__tent"></div></a>
+		</div>
+		<div class="tent" id="tent">
+			<a href="{{ siteUrl }}products" name="products"><div class="tent__dome"></div></a>
+		</div>
+		<div class="booth" id="booth">
+			<a href="{{ siteUrl }}experiences" name="experiences"><div class="booth__dj"></div></a>
+		</div>
+	</section>
+{% endblock %}

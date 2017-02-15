@@ -1,0 +1,16 @@
+
+
+{% extends "_layout" %}
+
+{% block content %}
+    <article id="contact" data-visible="false">
+        {% for entry in craft.entries.section('experiences').limit(1).find() %}
+        <div class="hero">
+            {% for image in entry.hero %}
+                <img src="{{ image.url }}" alt="{{ image.title }}">
+            {% endfor %}
+        </div><!-- /.hero -->
+        <h1>{{ entry.title }}</h1>
+        {% endfor %}
+    </article>
+{% endblock %}

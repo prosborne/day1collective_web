@@ -1,0 +1,16 @@
+
+
+{% extends "_layout" %}
+
+{% block content %}
+{% for entry in craft.entries.section('products').find() %} {% set shopify = craft.shopify.getProductById({ id: entry.shopifyProduct }) %}    
+	<article id="products">
+        <div class="hero">
+            {% for image in entry.hero %}
+                <img src="{{ image.url }}" alt="{{ image.title }}">
+            {% endfor %}
+        </div><!-- /.hero -->
+        <h1>{{ entry.title }}</h1>
+    </article>
+    {% endfor %}
+{% endblock %}

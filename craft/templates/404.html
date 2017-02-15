@@ -1,0 +1,17 @@
+
+
+{% extends "_layout" %}
+{% set title = "404" %}
+
+{% block content %}
+	<article id="experiences" data-visible="false">
+	 	<div class="hero">
+	        {% for image in craft.assets.kind('experience') %}
+			    <img src="{{ image.getUrl('hero') }}" alt="{{ image.title }}">
+			{% endfor %}
+	    </div><!-- /.hero -->
+	    <h1>{{ entry.title }}
+	    <h3>Page not found</h3>
+	    <p>What’s worse, a hilarious 404 page can’t be found either.</p>
+	</article>
+{% endblock %}

@@ -1,0 +1,25 @@
+
+
+{% extends "_layout" %}
+{% set title = "Blog" %}
+
+{% block content %}
+	<article id="blog">
+		{% for entry in craft.entries.section('blog') %}
+			<div class="blog-post">
+			 	{% for image in entry.hero %}
+		            <img src="{{ image.url }}" alt="{{ image.title }}">
+		        {% endfor %}
+				
+				<div class="blog-padding">
+					<h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
+					<p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
+					{{ entry.body.getPage(1) }}
+					<p><a href="{{ entry.url }}">Continue reading</a></p>
+				</div>
+			</div>
+			<hr>
+			<br>
+		{% endfor %}
+	</article>
+{% endblock %}

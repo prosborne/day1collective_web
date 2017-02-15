@@ -1,0 +1,38 @@
+
+{% extends "_layout" %}
+{% set title = "gallery" %}
+
+{% block content %}
+	<article id="gallery" data-visible="false">
+	 	<div class="hero">
+	        <h1>Gallery</h1>
+	    </div><!-- /.hero -->
+
+	    <div class="gallery-padding">
+	    	<h3>Featured Galleries</h3>
+            <div class="flex">
+            	{% for entry in craft.entries.section('gallery').find() %}
+                    <div class="item item__gallery--poster">
+                    	<a href="{{ entry.url }}">
+                    		{% for image in entry.featureImage %}
+                    			<img src="{{ image.url }}" alt="{{ image.title }}" width="100%" />
+        					{% endfor %}
+                    	</a>
+                    </div>
+				{% endfor %}
+            </div>
+	    	<h3>Current Images</h3>
+		    <div class="flex">
+				{% for entry in craft.entries.section('gallery') %}
+					{% for block in entry.galleryImages %}
+		                <div class="item item__gallery">
+		                    <div class="gallery-padding">
+		                        <img src="{{ block.url }}" alt="{{ block.title }}">
+		                    </div>
+		                </div>
+					{% endfor %}
+				{% endfor %}
+			</div>
+		</div>
+	</article>
+{% endblock %}

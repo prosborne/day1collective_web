@@ -1,0 +1,28 @@
+
+
+{% extends "_layout" %}
+
+{% block content %}
+<article id="about" data-visible="false">
+    {% for entry in craft.entries.section('about').limit(1).find() %}
+        <div class="hero">
+            {% for image in entry.hero %}
+                <img src="{{ image.url }}" alt="{{ image.title }}">
+            {% endfor %}
+        </div><!-- /.hero -->
+    	
+    	<div class="flex">
+            <div class="item item__about item__about--body">
+                <div class="item__body">
+    				{{ entry.body }}
+                </div>
+            </div><!-- /.item -->
+            <aside class="item item__about item__about--img">
+                {% for image in entry.image %}
+                    <img src="{{ image.url }}" alt="{{ image.title }}">
+                {% endfor %}
+            </aside>
+        </div><!-- /.flex -->
+    {% endfor %}
+</article>
+{% endblock %}
