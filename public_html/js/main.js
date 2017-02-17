@@ -1,45 +1,146 @@
-
-/**
-* Function to close the slideout Menu
-* Programatically clicks the toggle button to make sure triggers and states are set
-*
-* @return {void}
-*/
+// Function to close the modal window for navigation.  
 function closeMobile() {
+  // Hide overlay
   $(".mobile__fade").fadeOut('200');
+  // remove the active class from the mobile nav
   $(".mobile__navigation").removeClass("mobile__navigation--active");
+  // remove the overflow restrictions from the website
   $("body, html").removeClass("overflow");
+  // Swap the close icon for the regualr menu icon. 
   $(".mobile__icon").removeClass("mobile__icon--close");
 }
 
-/**
-* Function to open the slideout Menu
-* Programatically clicks the toggle button to make sure triggers and states are set
-*
-* @return {void}
-*/
+// Function to open the modal window
 function openMobile() {
+  // Show overlay
   $(".mobile__fade").fadeIn('200');
+  // add the active class from the mobile nav
   $(".mobile__navigation").addClass('mobile__navigation--active');
+  // add the overflow restrictions from the website
   $("body, html").addClass('overflow');
+  // Swap the menu icon for the close icon. 
   $(".mobile__icon").addClass("mobile__icon--close");
 }
 
-/**
-* Function to open the slideout Menu
-* Programatically clicks the toggle button to make sure triggers and states are set
-*
-* @return {void}
-*/
+// Show the hidden main navigation
+function showMenu() {
+    var logo = $('.logo a span');
+    logo.toggleClass('hover');
+    if ($(".desktop").is(":visible")) {
+      $(".desktop.left").hide("slide", { direction: "right" }, 1000);
+      $(".desktop.right").hide("slide", { direction: "left" }, 1000);
+    } else {
+      $(".desktop.left").show("slide", { direction: "right" }, 1000);
+      $(".desktop.right").show("slide", { direction: "left" }, 1000);
+    }
+  }
+
+var homeElementPer = function(percent, pos) {
+  var per = (percent/100) * pos;
+  return per;
+}
+
+var homeElementWidth = function(el, per, winWidth) {
+  // set element width based on 35% of the window width
+  $(el).css('width', homeElementPer(per, winWidth));
+}
+
+var homeElementHeight = function(el, per) {
+  var width = $(el).width(),
+      newHeight =  homeElementPer(per, width);
+  // set element width based on 35% of the window width
+  $(el).css('height', newHeight);
+}
+
+var homeElementBottom = function(el, per, winHeight) {
+  $(el).css('bottom', homeElementPer(per, winHeight)); 
+}
+
+var homeElementSize = function(winWidth, winHeight) {
+  // set woodFloor element width based on 35% of the window width
+  homeElementWidth('#woodFloor', 52, winWidth);
+  // set wood element to be 4% from bottom of window
+  homeElementBottom("#woodFloor", 0, winHeight);
+  // set height of element
+  homeElementHeight("#woodFloor", 23);
+  // set shade element width based on 15% of the window width
+  homeElementWidth("#shade", 30, winWidth);
+  // set shade to 24% from the bottom and 5% from the left
+  homeElementBottom("#shade", 24, winHeight);
+  // set height of element
+  homeElementHeight("#shade", 56);
+  // set tent element width based on 20% of window width
+  homeElementWidth("#tent", 35, winWidth);
+  // set tent to 20% from the bottom and 30% from the right
+  homeElementBottom("#tent", 20, winHeight);
+  // set height of element
+  homeElementHeight("#tent", 47);
+  // set booth element to be 40% of window width
+  homeElementWidth("#booth", 48, winWidth);
+  // set booth element to 0& from right and 1% from bottom of window
+  homeElementBottom("#booth", 1, winHeight);
+  // set height of element
+  homeElementHeight("#booth", 39);
+ }
+
+
+// gallery image swap main for thumbnail
 function gallery(gal_index, gal_img) {
   var src = gal_img,
   selector = $('*[data-main="' + gal_index + '"]');
   selector.prop("src", src);
 }
 
+// load different page content on click
+function pages(e, name, state) {
+  // prevent default link functionality
+  e.preventDefault;
+  // variables for the nav link and the section
+  var newState = !state,
+      navLink = $('.' + name),
+      articleName = $('article#' + name);
+  // set the current items visibility to true and set all other section visibility to false
+  $('article').data('visible', false);
+  articleName.data('visible', true);
+  // scroll if the state is true, scroll up if state is false
+  if (!state) {
+    console.log('state = false', state);
+    $('article').removeClass('active');
+    $('article#' + name).addClass('active');
+    $('article#' + name).slideDown("slow");
+  } else {
+    console.log('state = true', state);
+    $('article').removeClass('active');
+    articleName.slideUp("slow");
+  }
+  // set the current nav click to selected
+  $('.desktop a').removeClass('selected');
+  navLink.addClass('selected');
+}
+
+var productFilter = function(value, currentFilters) {
+  // conditional to determine of currentFilters is empty or not
+  if (currentFilters) {
+    currentFilters = currentFilters.push(value);
+  }
+  // Filter product categories
+  // Show all products
+  // On click, create an object with the categories selected
+  // Add current clicked 
+  // Print filter as link when added
+  // When filter clicked, it removes it from the object and removes the producs associated with them.
+
+}
+
 $(document).ready(function() {
-  var getHeight = $(window).height();
-  $('section').height(getHeight);
+
+  TweenMax.to("article", 1, {minHeight: 800});
+  var windowState = $(window).width(),
+  windowHeight = $(window).height(),
+  currentFilters = {}; 
+  $('#hero').height(windowHeight,windowHeight);
+  homeElementSize(windowState, windowHeight);
+
   $('a[href*=#]:not([href=#])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
@@ -53,67 +154,49 @@ $(document).ready(function() {
     }
   });
 
-  // hero click goes to order page
-  $('#hero').click(function() {
-    window.location.href = 'http://www.roadhouseamps.com/order.php';
+  $('.home-page .logo').click(function() {
+    if (windowState > 900) {
+      showMenu();
+    }
   });
 
+  $('.desktop li a').click(function(e) {
+    var navName = $(this).prop('name'),
+        artState = $('article#' + navName).data('visible');
+    // function to set scroll down state
+    pages(e, navName, artState);
+
+  })
+
   // Toggle the mobile menu
-    $('.mobile__icon').click(function () {
-        var overflow = $('body').hasClass('overflow');
-        if (overflow === true) {
-            closeMobile();
-        } else if (overflow === false)  {
-            openMobile();
-        }
-    });
-    // Prevent the scrolling from bubbling up the chain
-    $('.mobile__nav--container').on('scroll touchmove mousewheel', function (e) {
-        return e.preventDefault();
-    });
-
-    $('.mobile__navigation a').click(function() {
+  $('.mobile__icon').click(function () {
+    var overflow = $('body').hasClass('overflow');
+    if (overflow === true) {
         closeMobile();
-    });
-
-    $('.gallery--thumb').click(function() {
-        var gal_img = $(this).attr("src");
-        var gal_index = $(this).closest('[data-index]').attr('data-index');
-        gallery(gal_index, gal_img);
-    });
-
-    // Find all YouTube videos
-    var $allVideos = $("#homevid"),
-
-    // The element that is fluid width
-    $fluidEl = $("body");
-    // Figure out and save aspect ratio for each video
-    $allVideos.each(function() {
-      $(this)
-        .data('aspectRatio', this.height / this.width)
-
-        // and remove the hard coded width/height
-        .removeAttr('height')
-        .removeAttr('width');
-    });
-
-  // When the window is resized
-  $(window).resize(function() {
-    var newHeight = $fluidEl.height(),
-    newWidth = $fluidEl.width(),
-    padWidth;
-    if (newWidth < 700) {
-      padWidth = newWidth - 60
-    } else {
-      padWidth = 660;
+    } else if (overflow === false)  {
+        openMobile();
     }
-    // Resize all videos according to their own aspect ratio
-    $allVideos.each(function() {
-      var $el = $(this);
-      $el.width(padWidth).height(padWidth * $el.data('aspectRatio'));
-    });
-    $('section').height(newHeight);
-  // Kick off one resize to fix all videos on page load
-  }).resize();
+  });
+  // Prevent the scrolling from bubbling up the chain
+  $('.mobile__nav--container').on('scroll touchmove mousewheel', function (e) {
+    return e.preventDefault();
+  });
 
+  $('.mobile__navigation a').click(function() {
+    closeMobile();
+  });
+
+  $('.gallery--thumb').click(function() {
+    var gal_img = $(this).attr("src");
+    var gal_index = $(this).closest('[data-index]').attr('data-index');
+    gallery(gal_index, gal_img);
+  });
+
+});
+
+$( window ).resize(function() {
+  var windowState = $(window).width(),
+  windowHeight = $(window).height();
+
+  homeElementSize(windowState, windowHeight);
 });

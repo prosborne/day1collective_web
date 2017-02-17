@@ -102,10 +102,16 @@ h1, h2, h3, h4 {
 
 html {
   background-color: #302625;
-  background: url(../img/day1-landing.svg) no-repeat;
-  background-position: top center;
+  background: url(../img/day1_warehouse.jpg) no-repeat;
+  background-position: center center;
   background-attachment: fixed;
   background-size: cover; }
+  @media screen and (max-width: 900px) {
+    html {
+      background: url(../img/d1c_mobile.jpg) no-repeat;
+      background-position: top center;
+      background-attachment: fixed;
+      background-size: cover; } }
 
 body {
   font-size: 14px;
@@ -182,6 +188,9 @@ ul {
   content: "";
   clear: both; }
 
+.sticky-wrapper {
+  z-index: 1000000000000000; }
+
 .btn {
   color: #ead390;
   text-transform: uppercase;
@@ -205,6 +214,18 @@ ul {
     background-clip: padding-box;
     /* stops bg color from leaking outside the border: */
     background-color: #b33921; }
+  .btn.btn-nav {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    background-clip: padding-box;
+    /* stops bg color from leaking outside the border: */
+    background-color: #963920;
+    color: #FFF;
+    text-align: center;
+    padding: 1.25rem; }
+    .btn.btn-nav:hover {
+      color: #FFF; }
   .btn.btn--large {
     display: inline-block;
     text-transform: capitalize;
@@ -256,7 +277,7 @@ ul {
   width: 900px;
   position: fixed;
   left: 50%;
-  margin: 0 0 0 -450px;
+  margin: 106px 0 0 -450px;
   max-height: 94%;
   overflow: auto; }
   #content article {
@@ -292,12 +313,16 @@ ul {
   flex-flow: column wrap;
   justify-content: center;
   align-items: center; }
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 480px) {
     .flex {
       display: flex;
       flex-flow: row wrap;
       justify-content: center;
       align-items: center; } }
+  .flex .item.mobile-nav {
+    flex: 2 0 25%;
+    margin: 1.25rem 0.625rem 0 0.625rem;
+    width: 100%; }
   .flex .item.item__about--body {
     flex: 2 0;
     display: block; }
@@ -319,9 +344,20 @@ ul {
     padding: 0 1rem; }
   .flex .item.item__gallery {
     flex: 1 0 100px; }
+  .flex .item.item__gallery--poster {
+    flex: 1 0 45%; }
   .flex .item .item__body {
     position: relative;
     padding: 2rem; }
+
+#social {
+  text-align: center; }
+  #social .item__social a {
+    display: block;
+    background-color: #333;
+    height: 2rem;
+    width: 2rem;
+    margin: 1.25rem; }
 
 header {
   max-width: 900px;
@@ -330,6 +366,9 @@ header {
     clear: both;
     content: "";
     display: block; }
+  @media only screen and (max-width: 900px) {
+    header nav {
+      display: none; } }
   header nav ul {
     margin: 0;
     padding: 0;
@@ -392,6 +431,12 @@ header {
       @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
         .no-svg header .logo a span {
           background-image: url(../img/day1collective_logo@2x.png); } }
+    @media screen and (max-width: 900px) {
+      header .logo a span {
+        width: 6.25rem;
+        height: 6.25rem;
+        margin-left: -3.125rem;
+        top: 2.5rem; } }
     header .logo a span:hover, header .logo a span.hover {
       background-color: #231f20;
       /*opacity: 0.92;*/ }
@@ -405,6 +450,14 @@ header {
     /* stops bg color from leaking outside the border: */ }
   header.home-page .logo a span {
     background-color: rgba(255, 255, 255, 0.5); }
+    @media screen and (max-width: 900px) {
+      header.home-page .logo a span {
+        width: 7.5rem;
+        height: 7.5rem;
+        margin-left: -3.75rem;
+        top: 2.5rem;
+        background-color: #231f20;
+        opacity: 0.92; } }
     header.home-page .logo a span:hover, header.home-page .logo a span.hover {
       background-color: #231f20;
       /*opacity: 0.92;*/ }
@@ -415,47 +468,46 @@ header {
     padding: 1rem;
     color: #FFF;
     background: #b33921; }
-
-footer .flex {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: flex-start; }
-
-footer .item__footer ul li {
-  display: block;
-  margin: 0.9375rem;
-  font-size: 16px;
-  font-size: 1rem; }
-  footer .item__footer ul li a {
+  header .mobile-title {
+    margin: 11.25rem auto 1.25rem;
+    width: 65%;
     display: block; }
+    header .mobile-title img:first-child {
+      padding-bottom: 2.5rem; }
+    @media screen and (min-width: 900px) {
+      header .mobile-title {
+        display: none; } }
 
-footer .item__footer.item--leftpad {
-  padding-left: 2.5rem; }
-
-footer .item__footer.item__footer--social.item__footer--facebook span,
-footer .item__footer .item__footer--social.item__footer--facebook span {
+footer {
   display: block;
-  width: 2rem;
-  height: 2rem;
-  background: url(../img/facebook.svg) no-repeat;
-  background-size: 100% 100%; }
-
-footer .item__footer.item__footer--social.item__footer--twitter span,
-footer .item__footer .item__footer--social.item__footer--twitter span {
-  display: block;
-  width: 2rem;
-  height: 2rem;
-  background: url(../img/twitter.svg) no-repeat;
-  background-size: 100% 100%; }
-
-footer .item__footer.item__footer--social.item__footer--instagram span,
-footer .item__footer .item__footer--social.item__footer--instagram span {
-  display: block;
-  width: 2rem;
-  height: 2rem;
-  background: url(../img/instagram.svg) no-repeat;
-  background-size: 100% 100%; }
+  width: 100%;
+  z-index: 1000000;
+  background-color: #231f20;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+  @media screen and (min-width: 900px) {
+    footer {
+      display: none; } }
+  footer div {
+    border-left: 1px solid #cbbdbc;
+    display: inline-block;
+    float: right; }
+    footer div span {
+      cursor: pointer;
+      background: url(../img/menu-grabber.svg) no-repeat;
+      background-position: center;
+      background-size: cover;
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin: 20px; }
+  footer:after {
+    clear: both;
+    content: ""; }
 
 .mobile.mobile__icon {
   height: 32px;
@@ -502,6 +554,16 @@ footer .item__footer .item__footer--social.item__footer--instagram span {
   top: 0;
   bottom: 0; }
 
+.home-page .mobile-menu {
+  width: 70%;
+  margin: 1.25rem auto;
+  z-index: 10;
+  position: relative;
+  padding-bottom: 2.5rem; }
+  @media screen and (min-width: 900px) {
+    .home-page .mobile-menu {
+      display: none; } }
+
 .home-page .desktop {
   display: none; }
 
@@ -528,6 +590,12 @@ footer .item__footer .item__footer--social.item__footer--instagram span {
   padding: 0.9375rem;
   text-align: center; }
 
+#gallery .hero {
+  border-bottom: none; }
+  #gallery .hero h1 {
+    color: #963920;
+    padding: 1.25rem; }
+
 #gallery .flex {
   padding: 0.9375rem;
   margin-bottom: 2.5rem; }
@@ -536,32 +604,8 @@ footer .item__footer .item__footer--social.item__footer--instagram span {
   #gallery .flex .item__gallery img {
     max-width: 12.5rem;
     padding: 0.9375rem 0 0.9375rem 0.9375rem; }
-  #gallery .flex .item_gallery {
-    max-width: 25%; }
-
-#gallery .poster-main {
-  position: relative;
-  margin: 30px auto;
-  max-width: 90%; }
-
-#gallery .poster-main .poster-list .poster-item {
-  position: absolute;
-  left: 0;
-  top: 0;
-  list-style: none; }
-
-#gallery .poster-main .poster-btn {
-  position: absolute;
-  top: 0;
-  cursor: pointer; }
-
-#gallery .poster-main .poster-prev-btn {
-  left: 0;
-  background: url(../img/btn_l.png) no-repeat center center; }
-
-#gallery .poster-main .poster-next-btn {
-  right: 0;
-  background: url(../img/btn_r.png) no-repeat center center; }
+  #gallery .flex .item__gallery--poster {
+    padding: 1.25rem; }
 
 #blog .blog-padding {
   padding: 0.9375rem; }
@@ -577,20 +621,16 @@ footer .item__footer .item__footer--social.item__footer--instagram span {
   #blog .flex .item_product {
     max-width: 25%; }
 
-#contact .product-padding {
+#contact .product-contact {
   padding: 0.9375rem;
   text-align: center; }
 
 #contact .flex {
   padding: 0.9375rem; }
-  #contact .flex .item__products.item__products--filter {
-    width: 100%; }
-  #contact .flex .item__products img {
+  #contact .flex .item__contact img {
     max-width: 12.5rem;
     padding: 0.9375rem 0 0.9375rem 0.9375rem;
     max-width: 120px; }
-  #contact .flex .item_product {
-    max-width: 25%; }
 
 #experiences .product-padding {
   padding: 0.9375rem;
@@ -606,6 +646,144 @@ footer .item__footer .item__footer--social.item__footer--instagram span {
     max-width: 120px; }
   #experiences .flex .item_product {
     max-width: 25%; }
+
+.home #home_content {
+  display: block;
+  min-height: 600px; }
+  @media only screen and (max-width: 900px) {
+    .home #home_content {
+      display: none; } }
+
+.home #container {
+  border: 1px solid #963920;
+  margin: 1.25rem 1.25rem 5rem 1.25rem;
+  position: relative; }
+  @media screen and (min-width: 900px) {
+    .home #container {
+      border: 0;
+      margin: 0;
+      background: none; } }
+
+.home #content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0;
+  top: 105px;
+  bottom: 20px;
+  width: 100%; }
+  @media screen and (min-width: 900px) {
+    .home #content {
+      position: fixed;
+      overflow: hidden; } }
+  .home #content .wood-floor {
+    position: absolute;
+    bottom: -4%;
+    left: 0%;
+    display: block;
+    background: url(../img/wood-floor.png) no-repeat;
+    background-size: contain;
+    background-position: bottom right; }
+    .home #content .wood-floor .wood-floor__desk {
+      position: absolute;
+      bottom: 28%;
+      right: 3%;
+      display: block;
+      width: 32%;
+      height: 34%;
+      background: url(../img/wood-floor-desk.png) no-repeat;
+      background-size: cover;
+      background-position: center center;
+      transition: all 2s;
+      cursor: pointer;
+      z-index: 10000; }
+      .home #content .wood-floor .wood-floor__desk:hover {
+        bottom: 44% !important; }
+    .home #content .wood-floor .wood-floor__couch {
+      position: absolute;
+      bottom: 41%;
+      right: 15%;
+      display: block;
+      width: 30%;
+      height: 60%;
+      background: url(../img/wood-floor-couch.png) no-repeat;
+      background-size: cover;
+      transition: all 2s;
+      cursor: pointer;
+      z-index: 100; }
+      .home #content .wood-floor .wood-floor__couch:hover {
+        bottom: 60% !important; }
+    .home #content .wood-floor .wood-floor__workstation {
+      position: absolute;
+      bottom: 57%;
+      left: 25%;
+      display: block;
+      width: 31%;
+      height: 20%;
+      background: url(../img/wood-floor-workstation.png) no-repeat;
+      background-size: cover;
+      background-position: center center;
+      transition: all 2s;
+      cursor: pointer;
+      z-index: 10; }
+      .home #content .wood-floor .wood-floor__workstation:hover {
+        bottom: 70% !important; }
+  .home #content .shade {
+    z-index: 1;
+    transition: all 2s;
+    position: absolute;
+    left: 5%;
+    display: block;
+    cursor: pointer;
+    background: url(../img/shade-shadow.png) no-repeat;
+    background-size: contain;
+    background-position: bottom center; }
+    .home #content .shade .shade__tent {
+      z-index: 10;
+      transition: all 2s;
+      position: absolute;
+      bottom: 0% !important;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url(../img/shade.png) no-repeat;
+      background-size: contain;
+      background-position: bottom center; }
+      .home #content .shade .shade__tent:hover {
+        bottom: 9% !important; }
+  .home #content .tent {
+    z-index: 1;
+    position: absolute;
+    right: 30%;
+    display: block;
+    transition: all 2s;
+    cursor: pointer; }
+    .home #content .tent:hover {
+      bottom: 28% !important; }
+    .home #content .tent .tent__dome {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url(../img/tent.png) no-repeat;
+      background-size: contain;
+      background-position: bottom center; }
+  .home #content .booth {
+    z-index: 10;
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    display: block;
+    transition: all 2s;
+    cursor: pointer; }
+    .home #content .booth:hover {
+      bottom: 11% !important; }
+    .home #content .booth .booth__dj {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url(../img/booth.png) no-repeat;
+      background-size: contain;
+      background-position: bottom right; }
 
 /* Slider */
 .slick-slider {
