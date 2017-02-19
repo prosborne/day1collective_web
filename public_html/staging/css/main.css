@@ -97,20 +97,27 @@ table {
 
 h1, h2, h3, h4 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: bold;
+  font-style: normal;
+  font-weight: 700;
   display: block; }
 
 html {
-  background-color: #302625;
+  background-color: #58595b;
   background: url(../img/day1_warehouse.jpg) no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-size: cover; }
+  @media screen and (max-width: 900px) {
+    html {
+      background: url(../img/d1c_mobile.jpg) no-repeat;
+      background-position: top center;
+      background-attachment: fixed;
+      background-size: cover; } }
 
 body {
-  font-size: 14px;
-  font-size: 0.875rem;
-  color: #302625;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  color: #58595b;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 a {
@@ -122,8 +129,8 @@ a:hover {
   text-decoration: underline; }
 
 h1 {
-  font-size: 36px;
-  font-size: 2.25rem;
+  font-size: 27px;
+  font-size: 1.6875rem;
   padding-bottom: 1.40625rem;
   text-transform: uppercase;
   color: #963920; }
@@ -136,11 +143,14 @@ h2 {
   color: #963920; }
 
 h3 {
-  font-size: 18px;
-  font-size: 1.125rem;
-  padding-bottom: 1.40625rem;
+  font-size: 27px;
+  font-size: 1.6875rem;
+  padding-top: 2.8125rem;
+  padding-bottom: 2.8125rem;
   text-transform: uppercase;
   color: #963920; }
+  h3:first-child {
+    padding-top: 0; }
 
 h4 {
   font-size: 18px;
@@ -156,7 +166,7 @@ p {
   line-height: 1.3125rem;
   padding-bottom: 0.9375rem;
   display: block;
-  color: #302625; }
+  color: #58595b; }
 
 header {
   width: 100%;
@@ -173,10 +183,10 @@ ul {
 
 .hero {
   display: block;
-  max-height: 14.625rem;
-  border-bottom: 0.5rem solid #963920; }
+  max-height: 14.625rem; }
   .hero img {
-    width: 100%; }
+    width: 100%;
+    border-bottom: 0.5rem solid #963920; }
 
 .clearfix:after {
   content: "";
@@ -210,6 +220,7 @@ ul {
     background-color: #b33921; }
   .btn.btn-nav {
     display: block;
+    width: 100%;
     border-radius: 5px;
     background-clip: padding-box;
     /* stops bg color from leaking outside the border: */
@@ -267,12 +278,18 @@ ul {
     margin: 30px 0; }
 
 #content {
-  width: 900px;
+  max-width: 900px;
   position: fixed;
   left: 50%;
-  margin: 0 0 0 -450px;
+  margin: 106px 0 0 -450px;
   max-height: 94%;
   overflow: auto; }
+  @media screen and (max-width: 900px) {
+    #content {
+      left: 0;
+      margin-top: 0;
+      margin-left: 0;
+      position: relative; } }
   #content article {
     height: 0;
     overflow: hidden;
@@ -281,6 +298,8 @@ ul {
     margin: 0;
     width: 100%;
     display: block; }
+  #content .content--padding {
+    padding: 4.0625rem; }
   #content .flex {
     display: flex;
     flex-flow: row wrap;
@@ -314,14 +333,11 @@ ul {
       align-items: center; } }
   .flex .item.mobile-nav {
     flex: 2 0 25%;
-    margin: 1.25rem; }
+    margin: 1.25rem 0.625rem 0 0.625rem;
+    width: 100%; }
   .flex .item.item__about--body {
     flex: 2 0;
     display: block; }
-  .flex .item.item__about--img {
-    flex: 1 0;
-    display: block;
-    text-align: right; }
   .flex .item.item__hero {
     flex: 2 0 50%;
     display: block;
@@ -339,8 +355,7 @@ ul {
   .flex .item.item__gallery--poster {
     flex: 1 0 45%; }
   .flex .item .item__body {
-    position: relative;
-    padding: 2rem; }
+    position: relative; }
 
 #social {
   text-align: center; }
@@ -425,9 +440,7 @@ header {
           background-image: url(../img/day1collective_logo@2x.png); } }
     @media screen and (max-width: 900px) {
       header .logo a span {
-        top: 2.5rem;
-        background-color: #231f20;
-        opacity: 0.92; } }
+        display: none; } }
     header .logo a span:hover, header .logo a span.hover {
       background-color: #231f20;
       /*opacity: 0.92;*/ }
@@ -441,6 +454,14 @@ header {
     /* stops bg color from leaking outside the border: */ }
   header.home-page .logo a span {
     background-color: rgba(255, 255, 255, 0.5); }
+    @media screen and (max-width: 900px) {
+      header.home-page .logo a span {
+        width: 7.5rem;
+        height: 7.5rem;
+        margin-left: -3.75rem;
+        top: 2.5rem;
+        background-color: #231f20;
+        opacity: 0.92; } }
     header.home-page .logo a span:hover, header.home-page .logo a span.hover {
       background-color: #231f20;
       /*opacity: 0.92;*/ }
@@ -451,54 +472,37 @@ header {
     padding: 1rem;
     color: #FFF;
     background: #b33921; }
-  header .mobile-title {
-    margin: 11.25rem auto 1.25rem;
-    width: 35%;
-    display: block; }
-    @media screen and (min-width: 900px) {
-      header .mobile-title {
-        display: none; } }
 
-footer .flex {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: flex-start; }
-
-footer .item__footer ul li {
+footer {
   display: block;
-  margin: 0.9375rem;
-  font-size: 16px;
-  font-size: 1rem; }
-  footer .item__footer ul li a {
-    display: block; }
-
-footer .item__footer.item--leftpad {
-  padding-left: 2.5rem; }
-
-footer .item__footer.item__footer--social.item__footer--facebook span,
-footer .item__footer .item__footer--social.item__footer--facebook span {
-  display: block;
-  width: 2rem;
-  height: 2rem;
-  background: url(../img/facebook.svg) no-repeat;
-  background-size: 100% 100%; }
-
-footer .item__footer.item__footer--social.item__footer--twitter span,
-footer .item__footer .item__footer--social.item__footer--twitter span {
-  display: block;
-  width: 2rem;
-  height: 2rem;
-  background: url(../img/twitter.svg) no-repeat;
-  background-size: 100% 100%; }
-
-footer .item__footer.item__footer--social.item__footer--instagram span,
-footer .item__footer .item__footer--social.item__footer--instagram span {
-  display: block;
-  width: 2rem;
-  height: 2rem;
-  background: url(../img/instagram.svg) no-repeat;
-  background-size: 100% 100%; }
+  width: 100%;
+  z-index: 1000000;
+  background-color: #231f20;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+  @media screen and (min-width: 900px) {
+    footer {
+      display: none; } }
+  footer div {
+    border-left: 1px solid #f2f2f3;
+    display: inline-block;
+    float: right; }
+    footer div span {
+      cursor: pointer;
+      background: url(../img/menu-grabber.svg) no-repeat;
+      background-position: center;
+      background-size: cover;
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin: 20px; }
+  footer:after {
+    clear: both;
+    content: ""; }
 
 .mobile.mobile__icon {
   height: 32px;
@@ -547,7 +551,10 @@ footer .item__footer .item__footer--social.item__footer--instagram span {
 
 .home-page .mobile-menu {
   width: 70%;
-  margin: 1.25rem auto; }
+  margin: 1.25rem auto;
+  z-index: 10;
+  position: relative;
+  padding-bottom: 2.5rem; }
   @media screen and (min-width: 900px) {
     .home-page .mobile-menu {
       display: none; } }
@@ -555,9 +562,50 @@ footer .item__footer .item__footer--social.item__footer--instagram span {
 .home-page .desktop {
   display: none; }
 
-#about .item__about img {
-  max-width: 12.5rem;
-  margin: 0.9375rem 0.9375rem 0 0.9375rem; }
+.home-page .mobile-title {
+  margin: 11.25rem auto 1.25rem;
+  width: 65%;
+  display: block; }
+  .home-page .mobile-title img:first-child {
+    padding-bottom: 2.5rem; }
+  @media screen and (min-width: 900px) {
+    .home-page .mobile-title {
+      display: none; } }
+
+#about .item__about {
+  text-align: center; }
+  @media screen and (max-width: 900px) {
+    #about .item__about {
+      margin: 0 auto; } }
+  #about .item__about.item__about--body {
+    text-align: left;
+    border-right: 1px solid #963920;
+    padding-right: 4.0625rem; }
+  #about .item__about .item__about--img {
+    flex: 1 0;
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    max-height: 8.25rem; }
+    #about .item__about .item__about--img:first-child img {
+      margin-top: 0; }
+    #about .item__about .item__about--img:last-child img {
+      margin-bottom: 2.8125rem; }
+  #about .item__about img {
+    max-width: 8.25rem;
+    margin: 2.8125rem 0 0 3.375rem; }
+
+#about ul {
+  list-style: none; }
+  #about ul li {
+    list-style: none; }
+
+#about center em {
+  font-size: 12px;
+  line-height: 1.8;
+  font-style: italic;
+  font-family: "Georgia", sarif;
+  color: #58595b; }
 
 #products .product-padding {
   padding: 0.9375rem;
@@ -643,9 +691,9 @@ footer .item__footer .item__footer--social.item__footer--instagram span {
       display: none; } }
 
 .home #container {
-  border: 2px solid #963920;
-  margin: 10px;
-  background: linear-gradient(0deg, white, rgba(255, 255, 255, 0.3)); }
+  border: 1px solid #963920;
+  margin: 1.25rem 1.25rem 5rem 1.25rem;
+  position: relative; }
   @media screen and (min-width: 900px) {
     .home #container {
       border: 0;
@@ -653,14 +701,18 @@ footer .item__footer .item__footer--social.item__footer--instagram span {
       background: none; } }
 
 .home #content {
-  position: fixed;
-  margin: 0;
-  overflow: hidden;
+  position: absolute;
   left: 0;
+  right: 0;
+  margin: 0;
   top: 105px;
   bottom: 20px;
-  right: 0;
-  width: 100%; }
+  width: 100%;
+  max-width: 100%; }
+  @media screen and (min-width: 900px) {
+    .home #content {
+      position: fixed;
+      overflow: hidden; } }
   .home #content .wood-floor {
     position: absolute;
     bottom: -4%;
