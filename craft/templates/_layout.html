@@ -22,10 +22,12 @@
             <div class="logo">
                 <a {% if craft.request.getLastSegment() != '' %}href="/staging"{% endif %}><span></span></a>
             </div>
+{% if craft.request.getLastSegment() == '' %}
             <div class="mobile-title">
             	<img src="{{ siteUrl }}img/day1title.svg" title="Day 1 Collective" alt="Day 1 Collective">
             	<img src="{{ siteUrl }}img/createandinspire.svg" title="Create & Inspire" alt="Create & Inspire">
             </div>
+{% endif %}
             <nav>
                 <ul class="desktop left">
                     <li><a href="{{ siteUrl }}about" name="about">About</a></li>

@@ -11,15 +11,18 @@
             {% endfor %}
         </div><!-- /.hero -->
     	
-    	<div class="flex">
+    	<div class="flex content--padding">
             <div class="item item__about item__about--body">
                 <div class="item__body">
     				{{ entry.body }}
                 </div>
             </div><!-- /.item -->
-            <aside class="item item__about item__about--img">
+            <aside class="item item__about">
                 {% for image in entry.image %}
-                    <img src="{{ image.url }}" alt="{{ image.title }}">
+                    <div class="item__about--img">
+                        <img src="{{ image.url }}" alt="{{ image.title }}">
+                    </div>
+                    <p><strong>{{ image.title }}</strong></p>
                 {% endfor %}
             </aside>
         </div><!-- /.flex -->

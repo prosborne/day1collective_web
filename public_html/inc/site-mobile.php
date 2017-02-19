@@ -1,5 +1,5 @@
 
-        <!-- mobile menu -->
+        <!-- mobile menu 
         <div class="mobile mobile__navigation">
             <nav>
               <ul>
@@ -9,5 +9,5 @@
                 <li><a class="btn btn--order" href="http://roadhouseamps.com/order.php">Order Now</a></li>
               </ul>
             </nav>
-        </div><!-- /#mobile__navigation -->
-        <div class="mobile mobile__fade"></div>
+        </div><!-- /#mobile__navigation 
+        <div class="mobile mobile__fade"></div>-->
