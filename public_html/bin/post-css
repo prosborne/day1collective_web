@@ -1,0 +1,1 @@
+postcss --use autoprefixer -b 'last 2 versions' <css/main.css | cssmin > css/main.min.css

@@ -1,0 +1,12 @@
+#social {
+	text-align: center;
+	.item__social {
+		a {
+			display: block;
+			background-color: #333;
+			height: calculateRem(32px);
+			width: calculateRem(32px);
+			margin: calculateRem(20px);
+		}
+	}
+}

@@ -1,0 +1,23 @@
+#blog {
+	.blog-padding {
+		padding: calculateRem(15px);
+	}
+	.flex {
+		padding: calculateRem(15px);
+		.item__products {
+			&.item__products--filter {
+				width: 100%;
+			}
+			img {
+				max-width: calculateRem(200px);
+				padding: calculateRem(15px) 0 calculateRem(15px) calculateRem(15px);
+				max-width: 120px;
+			}
+		}
+
+		.item_product {
+			max-width: 25%;
+
+		}
+	}
+}

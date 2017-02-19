@@ -97,11 +97,12 @@ table {
 
 h1, h2, h3, h4 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: bold;
+  font-style: normal;
+  font-weight: 700;
   display: block; }
 
 html {
-  background-color: #302625;
+  background-color: #58595b;
   background: url(../img/day1_warehouse.jpg) no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -114,9 +115,9 @@ html {
       background-size: cover; } }
 
 body {
-  font-size: 14px;
-  font-size: 0.875rem;
-  color: #302625;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  color: #58595b;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 a {
@@ -128,8 +129,8 @@ a:hover {
   text-decoration: underline; }
 
 h1 {
-  font-size: 36px;
-  font-size: 2.25rem;
+  font-size: 27px;
+  font-size: 1.6875rem;
   padding-bottom: 1.40625rem;
   text-transform: uppercase;
   color: #963920; }
@@ -142,11 +143,14 @@ h2 {
   color: #963920; }
 
 h3 {
-  font-size: 18px;
-  font-size: 1.125rem;
-  padding-bottom: 1.40625rem;
+  font-size: 27px;
+  font-size: 1.6875rem;
+  padding-top: 2.8125rem;
+  padding-bottom: 2.8125rem;
   text-transform: uppercase;
   color: #963920; }
+  h3:first-child {
+    padding-top: 0; }
 
 h4 {
   font-size: 18px;
@@ -162,7 +166,7 @@ p {
   line-height: 1.3125rem;
   padding-bottom: 0.9375rem;
   display: block;
-  color: #302625; }
+  color: #58595b; }
 
 header {
   width: 100%;
@@ -179,10 +183,10 @@ ul {
 
 .hero {
   display: block;
-  max-height: 14.625rem;
-  border-bottom: 0.5rem solid #963920; }
+  max-height: 14.625rem; }
   .hero img {
-    width: 100%; }
+    width: 100%;
+    border-bottom: 0.5rem solid #963920; }
 
 .clearfix:after {
   content: "";
@@ -274,12 +278,18 @@ ul {
     margin: 30px 0; }
 
 #content {
-  width: 900px;
+  max-width: 900px;
   position: fixed;
   left: 50%;
   margin: 106px 0 0 -450px;
   max-height: 94%;
   overflow: auto; }
+  @media screen and (max-width: 900px) {
+    #content {
+      left: 0;
+      margin-top: 0;
+      margin-left: 0;
+      position: relative; } }
   #content article {
     height: 0;
     overflow: hidden;
@@ -288,6 +298,8 @@ ul {
     margin: 0;
     width: 100%;
     display: block; }
+  #content .content--padding {
+    padding: 4.0625rem; }
   #content .flex {
     display: flex;
     flex-flow: row wrap;
@@ -326,10 +338,6 @@ ul {
   .flex .item.item__about--body {
     flex: 2 0;
     display: block; }
-  .flex .item.item__about--img {
-    flex: 1 0;
-    display: block;
-    text-align: right; }
   .flex .item.item__hero {
     flex: 2 0 50%;
     display: block;
@@ -347,8 +355,7 @@ ul {
   .flex .item.item__gallery--poster {
     flex: 1 0 45%; }
   .flex .item .item__body {
-    position: relative;
-    padding: 2rem; }
+    position: relative; }
 
 #social {
   text-align: center; }
@@ -433,10 +440,7 @@ header {
           background-image: url(../img/day1collective_logo@2x.png); } }
     @media screen and (max-width: 900px) {
       header .logo a span {
-        width: 6.25rem;
-        height: 6.25rem;
-        margin-left: -3.125rem;
-        top: 2.5rem; } }
+        display: none; } }
     header .logo a span:hover, header .logo a span.hover {
       background-color: #231f20;
       /*opacity: 0.92;*/ }
@@ -468,15 +472,6 @@ header {
     padding: 1rem;
     color: #FFF;
     background: #b33921; }
-  header .mobile-title {
-    margin: 11.25rem auto 1.25rem;
-    width: 65%;
-    display: block; }
-    header .mobile-title img:first-child {
-      padding-bottom: 2.5rem; }
-    @media screen and (min-width: 900px) {
-      header .mobile-title {
-        display: none; } }
 
 footer {
   display: block;
@@ -493,7 +488,7 @@ footer {
     footer {
       display: none; } }
   footer div {
-    border-left: 1px solid #cbbdbc;
+    border-left: 1px solid #f2f2f3;
     display: inline-block;
     float: right; }
     footer div span {
@@ -567,9 +562,50 @@ footer {
 .home-page .desktop {
   display: none; }
 
-#about .item__about img {
-  max-width: 12.5rem;
-  margin: 0.9375rem 0.9375rem 0 0.9375rem; }
+.home-page .mobile-title {
+  margin: 11.25rem auto 1.25rem;
+  width: 65%;
+  display: block; }
+  .home-page .mobile-title img:first-child {
+    padding-bottom: 2.5rem; }
+  @media screen and (min-width: 900px) {
+    .home-page .mobile-title {
+      display: none; } }
+
+#about .item__about {
+  text-align: center; }
+  @media screen and (max-width: 900px) {
+    #about .item__about {
+      margin: 0 auto; } }
+  #about .item__about.item__about--body {
+    text-align: left;
+    border-right: 1px solid #963920;
+    padding-right: 4.0625rem; }
+  #about .item__about .item__about--img {
+    flex: 1 0;
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    max-height: 8.25rem; }
+    #about .item__about .item__about--img:first-child img {
+      margin-top: 0; }
+    #about .item__about .item__about--img:last-child img {
+      margin-bottom: 2.8125rem; }
+  #about .item__about img {
+    max-width: 8.25rem;
+    margin: 2.8125rem 0 0 3.375rem; }
+
+#about ul {
+  list-style: none; }
+  #about ul li {
+    list-style: none; }
+
+#about center em {
+  font-size: 12px;
+  line-height: 1.8;
+  font-style: italic;
+  font-family: "Georgia", sarif;
+  color: #58595b; }
 
 #products .product-padding {
   padding: 0.9375rem;
@@ -671,7 +707,8 @@ footer {
   margin: 0;
   top: 105px;
   bottom: 20px;
-  width: 100%; }
+  width: 100%;
+  max-width: 100%; }
   @media screen and (min-width: 900px) {
     .home #content {
       position: fixed;

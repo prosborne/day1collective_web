@@ -1,0 +1,41 @@
+.flex {
+	@include flex-container(flexbox, column, wrap, center, center);
+	@media only screen and (min-width: 480px) {
+      @include flex-container(flexbox, row, wrap, center, center);
+    }
+	.item {
+		&.mobile-nav {
+			@include flex-column($flex-grow: 2, $flex-shrink: 0, $justify-basis: 25%);
+			margin: calculateRem(20px) calculateRem(10px) 0 calculateRem(10px);
+			width: 100%;
+		}
+		&.item__about--body {
+			@include flex-column($flex-grow: 2, $flex-shrink: 0);
+			display: block;
+		}
+		&.item__hero {
+			@include flex-column($flex-grow: 2, $flex-shrink: 0, $justify-basis: 50%);
+			display: block;
+			padding: 0 0 2rem;
+		}
+		&.item__footer {
+			@include flex-column($flex-grow: 1, $flex-shrink: 0, $justify-basis: 25%);
+			display: block;
+			padding-bottom: 2rem;
+		}
+		&.item__feature {
+			@include flex-column($flex-grow: 0, $flex-shrink: 0, $justify-basis: 50%);
+			display: block;
+			padding: 0 1rem;
+		}
+		&.item__gallery {
+			@include flex-column($flex-grow: 1, $flex-shrink: 0, $justify-basis: 100px);
+		}
+		&.item__gallery--poster {
+			@include flex-column($flex-grow: 1, $flex-shrink: 0, $justify-basis: 45%);
+		}
+		.item__body {
+			position: relative;
+		}
+	}
+}

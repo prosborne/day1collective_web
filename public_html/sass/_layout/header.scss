@@ -1,0 +1,125 @@
+header {
+	max-width: 900px;
+	margin: 0 auto;
+	&:after {
+		clear: both;
+		content: "";
+		display: block;
+	}
+	nav{
+		@media only screen and (max-width: 900px) {
+			display: none;
+		}
+		ul {
+			margin: 0;
+		    padding: 0;
+		    display: flex;
+		    flex-wrap: wrap;
+		    justify-content: space-around;
+		    list-style: none;
+		    background-color: $nav;
+		    opacity: 0.92;
+		    &.left {
+		    	width: 45%;
+		    	float: left;
+		    	margin-top: calculateRem(60px);
+				@include border-radius(5px 5px 0 0);
+				text-align: right;
+				li:last-child {
+					padding-right: 18%;
+				}
+		    }
+		    &.right {
+		    	width: 45%;
+		    	float:right;
+		    	margin-top: calculateRem(60px);
+				@include border-radius(5px 5px 0 0);
+				text-align: left;
+				li:first-child {
+					padding-left: 18%;
+				}
+		    }
+		    li {
+		    	@include font-size(14px);
+    			padding: 1rem 4%;
+    			display: inline-block;
+				margin-left: 0;
+    			&:last-child {
+					padding-bottom: 0;
+				}
+    			a {
+    				text-transform: uppercase;
+		    	}
+    			strong {
+    				color: $font-links;
+    				font-weight: $type-bold;
+    			}
+		    }
+		}
+	}	
+	.logo {
+		a {
+			span {
+				@include background-image('day1collective_logo', contain);
+			    width: calculateRem(130px);
+			    height: calculateRem(130px);
+			    display: block;
+				@include border-radius(50%);
+				position: absolute;
+				z-index: $zindex--top;
+				top: calculateRem(20px);
+				margin-left: calculateRem(-65px);
+				left: 50%;
+				background-color: $nav;
+				@media screen and (max-width: 900px) {
+					display: none;
+				}
+				&:hover,
+				&.hover {
+					background-color: $nav;
+					/*opacity: 0.92;*/
+				}
+    		}
+    	}
+	}
+	&.home-page {
+		nav {
+			ul {
+				&.left {
+					@include border-radius(5px);
+				}
+				&.right {
+					@include border-radius(5px);
+				}
+			}
+		}
+		.logo {
+			a {
+				span {
+			    	background-color: rgba(255,255,255, .5);
+			    	@media screen and (max-width: 900px) {
+						width: calculateRem(120px);
+				    	height: calculateRem(120px);
+						margin-left: calculateRem(-60px);
+						top: calculateRem(40px);
+						background-color: $nav;
+						opacity: 0.92;
+					}
+					&:hover,
+					&.hover {
+						background-color: $nav;
+						/*opacity: 0.92;*/
+					}
+				}
+			}
+		}
+	}
+	#callus {
+		display: none;
+		width: 100%;
+		text-align: center;
+		padding: 1rem;
+		color: $white;
+		background: $orange-base;
+	}
+}
