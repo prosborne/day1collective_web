@@ -1,0 +1,42 @@
+#content {
+	max-width: 900px;
+	position: fixed;
+	left: 50%;
+    margin: 106px 0 0 -450px;
+    max-height: 94%;
+    overflow: auto;
+	@media screen and (max-width: 900px) {
+		left: 0;
+		margin-top: 0;
+		margin-left: 0;
+		position: relative;
+	}
+    article {
+	    height: 0;
+	    overflow: hidden;
+	    overflow-y: scroll;
+		background-color: rgba(255,255,255, .8);
+		margin: 0;
+		width: 100%;
+    	display: block;
+    }
+    .content--padding {
+    	padding: calculateRem(65px);
+    }
+	.flex {
+		@include flex-container(flexbox, row, wrap, flex-start, flex-start);
+		padding-bottom: calculateRem(40px);
+
+	    @media (max-width: 850px) {
+	      flex-direction: column;
+	    }
+	    &.video {
+	    	justify-content: center;
+	    }
+	}
+
+	.item__feature {
+		text-align: left;
+		margin: 30px 0;
+	}
+}

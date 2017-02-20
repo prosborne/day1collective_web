@@ -10,13 +10,15 @@
 	            <img src="{{ image.url }}" alt="{{ image.title }}">
 	        {% endfor %}
 	    </div><!-- /.hero -->
-		<div class="flex">
+		<div class="flex content--padding">
 		    <div class="item item__contact item__contact--body">
-		        <div class="item__body">
-					<p>Email: {{ email.contactField }}</p>
-					<p>Phone: {{ phone.contactField }}</p>
-					<p>Address: {{ address.contactTextarea }}</p>
-		        </div>
+				<p>Email: <a href="mailto:{{ email.contactField }}">{{ email.contactField }}</a></p>
+				<p>Give us a call:</p>
+				<p><a href="tel:{{ phone.contactField }}">{{ phone.contactField }}</a></p>
+				<p>&nbsp;</p>
+				<p>If you are interested in employment, <br>
+				send your resume &amp; introduction to<br>
+				<a href="mailto:{{ careers.contactField }}">{{ careers.contactField }}</a>
 		    </div><!-- /.item -->
 		    <aside class="item item__contact item__contact--form">
 				<form class="newsletter-form" action="" method="POST">
@@ -34,20 +36,20 @@
 
 				    <div class="field-line">
 				      <label>First name:</label>
-				      <input type="text" name="mcvars[FNAME]" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.vars.FNAME }}{% endif %}"/>
+				      <input placeholder="First Name" type="text" name="mcvars[FNAME]" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.vars.FNAME }}{% endif %}"/>
 				    </div>
 
 				    <div class="field-line">
 				      <label>Last name:</label>
-				      <input type="text" name="mcvars[LNAME]" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.vars.LNAME }}{% endif %}"/>
+				      <input placeholder="First Name" type="text" name="mcvars[LNAME]" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.vars.LNAME }}{% endif %}"/>
 				    </div>
 
 				    <div class="field-line">
 				      <label{% if (mailchimpSubscribe is defined) and (mailchimpSubscribe.errorCode=='1000') %} class="error"{% endif %}>Email:</label>
-				      <input type="text" name="email" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.email }}{% endif %}"/>
+				      <input placeholder="Email" type="text" name="email" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.email }}{% endif %}"/>
 				    </div>
 
-				    <input type="submit" name="" value="Subscribe"/>
+				    <input type="submit" name="" class="btn btn--info" value="Subscribe"/>
 				  </form>
 		    </aside>
 		</div><!-- /.flex -->
@@ -55,9 +57,19 @@
 			<div class="item item__social item--facebook"><a href="{{ facebook.socialLink }}" target="_blank"><span></span></a></div>
 			<div class="item item__social item--instagram"><a href="{{ instagram.socialLink }}" target="_blank"><span></span></a></div>
 			<div class="item item__social item--twitter"><a href="{{ twitter.socialLink }}" target="_blank"><span></span></a></div>
-			<div class="item item__social item--pinterest"><a href="{{ pinterest.socialLink }}" target="_blank"><span></span></a></div>
-			<div class="item item__social item--linkedin"><a href="{{ linkedin.socialLink }}" target="_blank"><span></span></a></div>
+			<div class="item item__social item--gplus"><a href="{{ gplus.socialLink }}" target="_blank"><span></span></a></div>
 			<div class="item item__social item--youtube"><a href="{{ youtube.socialLink }}" target="_blank"><span></span></a></div>
+		</div>
+
+		<div id="address" class="flex content--padding">
+			<div class="item item__address item__address--body">
+				<h3>Headquarters</h3>
+				{{ address.contactTextarea }}
+			</div>
+			<div class="item item__address item__address--map">
+				<!-- 215px x 215px desktop -->
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2866.9739335684103!2d-123.03288568448886!3d44.063246879109435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54c0e1bc2ba1bb7f%3A0xb8d1c4a270b104e1!2s361+Shelley+St+b%2C+Springfield%2C+OR+97477!5e0!3m2!1sen!2sus!4v1487561578249" width="215" height="215" frameborder="0" style="border:0" allowfullscreen></iframe>
+			</div>
 		</div>
 	</article>
 	{% endfor %}

@@ -1,0 +1,82 @@
+.mobile {
+  &.mobile__icon {
+    height: 32px;
+    width: 32px;
+    display: block;
+    cursor: pointer;
+    background: url(../img/menu.svg) no-repeat;
+    background-size: cover;
+    margin: 1em;
+    &.mobile__icon--close {
+      background: url(../img/squared-cross.svg) !important;
+    }
+  }
+
+  &.mobile__nav--container {
+    z-index: $zindex--top;
+    position: relative;
+    @media only screen and (min-width: 769px) {
+      display: none;
+    }
+  }
+
+  &.mobile__navigation {
+    display: none;
+    position: fixed;
+    z-index: $zindex--top;
+    width: 90%;
+    top: 10%;
+    left: 5%;
+    text-align: center;
+    @include font-size(20px);
+    &.mobile__navigation--active {
+      display: block;
+    }
+    li {
+      padding: calculateRem(20px);
+    }
+  }
+
+  &.mobile__fade {
+    display: none;
+    position: fixed;
+    z-index: $zindex--5;
+    background-color: rgba(256,256,256,.95);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0
+  }
+}
+
+.home-page {
+  .mobile-menu {
+    width: 70%;
+    margin: calculateRem(20px) auto;
+    z-index: $zindex--5;
+    position: relative;
+    padding-bottom:calculateRem(40px);
+    @media screen and (min-width: 900px) {
+      display: none;
+    }
+  }
+  .desktop {
+    display: none;
+  }
+
+  .mobile-title {
+    margin: calculateRem(180px) auto calculateRem(20px);
+    width: 65%;
+    display: block;
+    img {
+      &:first-child {
+        padding-bottom: calculateRem(40px);
+      }
+    }
+    @media screen and (min-width: 900px) {
+      display: none;
+    }
+  }
+}

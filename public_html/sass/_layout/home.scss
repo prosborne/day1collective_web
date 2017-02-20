@@ -1,0 +1,166 @@
+.home {
+	#home_content {
+		display: block;
+	    min-height: 600px;
+		@media only screen and (max-width: 900px) {
+			display: none;
+		}
+	}
+
+	#container {
+		border: 1px solid $border-red;
+		margin: calculateRem(20px) calculateRem(20px) calculateRem(80px) calculateRem(20px);
+		position: relative;
+		@media screen and (min-width: 900px) {
+			border: 0;
+			margin: 0;
+			background: none;
+		}
+	}
+
+	#content {    
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    margin: 0;
+	    top: 105px;
+	    bottom: 20px;
+	    width: 100%;
+	    max-width: 100%;
+		@media screen and (min-width: 900px) {
+		    position: fixed;
+		    overflow: hidden;
+		}
+		.wood-floor {
+			position: absolute;
+		    bottom: -4%;
+		    left: 0%;
+			display: block;
+			background: url(../img/wood-floor.png) no-repeat;
+			background-size: contain;
+    		background-position: bottom right;
+			.wood-floor__desk {
+				position: absolute;
+			    bottom: 28%;
+			    right: 3%;
+			    display: block;
+			    width: 32%;
+			    height: 34%;
+			    background: url(../img/wood-floor-desk.png) no-repeat;
+			    background-size: cover;
+			    background-position: center center;
+			    transition: all 2s;
+			    cursor: pointer;
+			    z-index: 10000;
+			    &:hover {
+					bottom: 44% !important;
+			    }
+			}
+
+			.wood-floor__couch {
+			    position: absolute;
+				bottom: 41%;
+				right: 15%;
+				display: block;
+				width: 30%;
+				height: 60%;
+			    background: url(../img/wood-floor-couch.png) no-repeat;
+			    background-size: cover;
+			    transition: all 2s;
+			    cursor: pointer;
+			    z-index: 100;
+			    &:hover {
+					bottom: 60% !important;
+			    }
+			}
+
+			.wood-floor__workstation {
+				position: absolute;
+			    bottom: 57%;
+			    left: 25%;
+			    display: block;
+			    width: 31%;
+			    height: 20%;
+			    background: url(../img/wood-floor-workstation.png) no-repeat;
+			    background-size: cover;
+			    background-position: center center;
+			    transition: all 2s;
+			    cursor: pointer;
+			    z-index: 10;
+			    &:hover {
+					bottom: 70% !important;
+			    }
+			}
+		}
+
+		.shade {    
+			z-index: 1;
+			transition: all 2s;
+		    position: absolute;
+		    left: 5%;
+		    display: block;		
+		    cursor: pointer;
+		    background: url(../img/shade-shadow.png) no-repeat;
+		    background-size: contain;
+		    background-position: bottom center;
+			.shade__tent {
+				z-index: 10;
+			    transition: all 2s;
+		    	position: absolute;
+				bottom: 0% !important;
+			    display: block;
+			    width: 100%;
+			    height: 100%;
+			    background: url(../img/shade.png) no-repeat;
+			    background-size: contain;
+			    background-position: bottom center;
+			    &:hover {
+					bottom: 9% !important;
+			    }
+			}
+		}
+
+		.tent {    
+			z-index: 1;
+		    position: absolute;
+    		right: 30%;
+		    display: block;
+		    transition: all 2s;
+		    cursor: pointer;
+		    &:hover {
+				bottom: 28% !important;
+		    }
+
+			.tent__dome {
+			    display: block;
+			    width: 100%;
+    			height: 100%;
+			    background: url(../img/tent.png) no-repeat;
+			    background-size: contain;
+			    background-position: bottom center;
+			}
+		}
+
+		.booth {    
+			z-index: 10;
+		    position: absolute;
+		    bottom: 1%;
+		    right: 1%;
+		    display: block;
+		    transition: all 2s;
+		    cursor: pointer;
+		    &:hover {
+				bottom: 11% !important;
+		    }
+
+			.booth__dj {
+			    display: block;
+			    width: 100%;
+			    height: 100%;
+			    background: url(../img/booth.png) no-repeat;
+			    background-size: contain;
+			    background-position: bottom right;
+			}
+		}
+	}
+}

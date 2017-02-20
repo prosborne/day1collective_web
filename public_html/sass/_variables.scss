@@ -1,0 +1,78 @@
+// colors simantic variables
+$gray-base:			#58595b;
+$gray-xlight:		lighten( $gray-base, 60% );
+$gray-light:		lighten( $gray-base, 40% );
+$gray-med:			lighten( $gray-base, 20% );
+$black-base:		#231f20;
+$yellow-base:		#fbb040; 
+$yellow-light:		lighten( $yellow-base, 20% );
+$yellow-dark:		darken( $yellow-base, 20% );
+$tan-base:			#ead390;
+$orange-base:		#b33921;
+$orange-light:		lighten( $orange-base, 20% );
+$red-base:			#963920;
+$white:				#FFF;
+$green-base:		#00a651;
+
+// colors functional variables
+$font-main:			$gray-base;
+$font-secondary:	$gray-med;
+$font-tertiary:		$gray-light;
+$font-links:		$yellow-base;
+$font-links-light:	$yellow-light;
+$font-label:		$gray-med;
+$font-headline: 	$red-base;
+$fade:				$gray-base;
+$border:			$gray-xlight;
+$border-red:		$red-base;
+$btn-order:			$yellow-base;
+$btn-info:			$orange-base;
+$btn-text:			$tan-base;
+$btn-nav:			$red-base;
+$h1-hero: 			$white;
+$h2-hero: 			$white;
+$headline: 			$red-base;
+$price-amount: 		$green-base;
+$nav:				$black-base;
+
+// typeface treatmetns
+$type-body:			'Helvetica Neue', Helvetica, Arial, sans-serif;
+$type-headline:		$type-body;
+$type-bold: 		900;
+
+// font sizes
+$font-base: 		0.875em;
+$font-small:		$font-base/1.25;
+$font-size-body: 	$font-base;
+$font-size-menu: 	$font-base*2;
+$font-size-h1: 		$font-base*3;
+$font-size-h2: 		$font-base*2;
+$font-size-h3: 		$font-base*1.5;
+$font-size-h4: 		$font-base*1.25;
+
+
+// media query variables
+$mobile-max: 		736px;
+$mid-max: 			1024px;
+$mobile: 			$mobile-max;
+
+$tablet-min: 		$mobile-max + 1;
+$tablet-max: 		1024px;
+$tablet: 			tablet-max;
+
+$desktop-min: 		$tablet + 1;
+$desktop: 			$desktop-min;
+
+
+$image-path: '../img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+
+//z-index
+$zindex--top: 		1000000;
+$zindex--5:			100000;
+$zindex--4:			10000;
+$zindex--3:			1000;
+$zindex--4:			100;
+$zindex--5:			10;
+$zindex--bottom: 	0;

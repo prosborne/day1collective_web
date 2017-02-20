@@ -1,0 +1,38 @@
+/*
+Theme Name: Meadowlark RV Park, Creswell, OR
+Description: The styes for the Meadowlark RV Park website
+Author: Peter Riley Osborne
+Author URI: http://www.prosborne.com/
+Tags: Website
+*/
+
+@import "_base/fonts.scss";
+@import "_variables.scss";
+@import "_mixins.scss";
+
+//base styles
+@import "_base/reset.scss";
+@import "_base/base.scss";
+//module styles
+@import "_module/buttons.scss";
+@import "_module/feature.scss";
+@import "_module/content.scss";
+@import "_module/hero.scss";
+@import "_module/blockquote.scss";
+@import "_module/flex.scss";
+@import "_module/social.scss";
+
+//layout styles
+@import "_layout/header.scss";
+@import "_layout/footer.scss";
+@import "_layout/mobile.scss";
+@import "_layout/about.scss";
+@import "_layout/products.scss";
+@import "_layout/gallery.scss";
+@import "_layout/blog.scss";
+@import "_layout/contact.scss";
+@import "_layout/experience.scss";
+@import "_layout/home.scss";
+
+@import "_theme/slick.scss";
+@import "_theme/slick-theme.scss";

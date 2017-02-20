@@ -1,0 +1,136 @@
+%headerstyles {
+	font-family: $type-headline;
+	font-style: normal;
+	font-weight: 700;
+	display: block;
+} 
+html {
+	background-color: $gray-base;
+	background: url(../img/day1_warehouse.jpg) no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+	@media screen and (max-width: 900px) {
+		background: url(../img/d1c_mobile.jpg) no-repeat;
+		background-position: top center;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+}
+body {
+	@include font-size(13px);
+	color: $gray-base;
+	font-family: $type-body;
+}
+
+a {
+	color: $font-links;
+	text-decoration: none;
+}
+
+a:hover {
+	color: $font-links-light;
+	text-decoration: underline;
+}
+
+h1 {
+	@extend %headerstyles;
+	@include font-size(27px);
+	padding-bottom: calculateRem(22.5px);
+	text-transform: uppercase;
+	color: $headline;
+}
+
+h2 {
+	@extend %headerstyles;
+	@include font-size(24px);
+	text-transform: none;
+	padding-bottom: calculateRem(15px);
+	color: $headline;
+}
+
+h3 {
+	@extend %headerstyles;
+	@include font-size(27px);
+	padding-top: calculateRem(45px);
+	padding-bottom: calculateRem(45px);
+	text-transform: uppercase;
+	color: $headline;
+	&:first-child {
+		padding-top: 0;
+	}
+}
+
+h4 {
+	@extend %headerstyles;
+	@include font-size(18px);
+	padding-bottom: calculateRem(18px);
+	text-transform: uppercase;
+	color: $headline;
+}
+
+p {
+	@include font-size(14px);
+	@include line-height(21);
+	padding-bottom: calculateRem(15px);
+	display: block;
+	color: $font-main;
+}
+
+header {
+	width: 100%;
+    top: 0;
+}
+
+ul {
+	list-style: disc;
+	list-style-position: outside;
+	li {
+		padding-bottom: calculateRem(15px);
+    	margin-left: calculateRem(15px);
+		&:last-child {
+			padding-bottom: calculateRem(30px);
+		}
+	}
+}
+
+.hero {
+	display: block;
+	max-height: calculateRem(234px);
+	img {
+		width: 100%;
+		border-bottom: calculateRem(8px) solid $red-base;
+	}
+}
+
+.clearfix {
+	&:after {
+		content: "";
+		clear: both;
+	}
+}
+
+.sticky-wrapper {
+	z-index: 1000000000000000;
+}
+
+%section--lead {
+	display: block;
+	text-align: center;
+	padding: 2rem 0;
+}
+
+%input__base {
+	display: block;
+	@include border-radius(5px);
+	padding: calculateRem(8px);
+	margin-bottom: calculateRem(10px);
+	border: 1px solid $border;
+}
+
+%section--background {
+	background: url(../img/bg_mountains.svg) $tan-base no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	width: 100%;
+}

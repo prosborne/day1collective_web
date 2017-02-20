@@ -1,0 +1,29 @@
+#gallery {
+	.gallery-padding {
+		padding: calculateRem(15px);
+		text-align: center;
+	}
+	.hero {
+		border-bottom: none;
+		h1 {
+			color: $headline;
+			padding: calculateRem(20px);
+		}
+	}
+	.flex {
+		padding: calculateRem(15px);
+		margin-bottom: calculateRem(40px);
+		.item__gallery {
+			&.item__gallery--filter {
+				width: 100%;
+			}
+			img {
+				max-width: calculateRem(200px);
+				padding: calculateRem(15px) 0 calculateRem(15px) calculateRem(15px);
+			}
+		}
+		.item__gallery--poster {
+			padding: calculateRem(20px);
+		}
+	}
+}

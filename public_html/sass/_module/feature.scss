@@ -1,0 +1,17 @@
+#feature {
+	@extend %innermax;
+	text-align: center;
+	.flex {
+		@include flex-container(flexbox, row, wrap, flex-start, flex-start);
+		padding-bottom: calculateRem(40px);
+
+	    @media (max-width: 850px) {
+	      flex-direction: column;
+	    }
+	}
+
+	.item__feature {
+		text-align: left;
+		margin: 30px 0;
+	}
+}

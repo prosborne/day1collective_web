@@ -1,0 +1,63 @@
+.btn {
+	color: $btn-text;
+	text-transform: uppercase;
+	border: 0;
+	text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
+	cursor: pointer;
+	padding: calculateRem(12px) calculateRem(20px);
+	font-weight: bold;
+	&:hover {
+		text-decoration: none;
+	}
+	&.btn--order {
+		@include border-radius(5px);
+		background-color: $btn-order;
+		&:hover {
+			color: $btn-text;
+			background-color: $yellow-light;
+		}
+	}
+	&.btn--info {
+		@include border-radius(5px);
+		background-color: $btn-info;
+	}
+	&.btn-nav {
+		display: block;
+		width: 100%;
+		@include border-radius(5px);
+		background-color: $btn-nav;
+		color: $white;
+	    text-align: center;
+    	padding: calculateRem(20px);
+    	&:hover {
+    		color: $white;
+    	}
+	}
+	&.btn--large {
+		display: inline-block;
+		text-transform: capitalize;
+		font-weight: normal;
+		@include line-height(15);
+		strong {
+			@include line-height(20);
+		    text-transform: uppercase;
+		    margin-bottom: 8px;
+		    font-weight: bold;
+		    display: block;
+		    font-size: 18px;
+		    color: $white;
+		}
+	}
+	&.btn__img {
+		margin-left: calculateRem(30px);
+		text-align: left;
+		.btn__img--reverb {
+			@include background-image("reverb-logo", cover);
+			background-repeat: no-repeat;
+			height: 41px;
+			width: 150px;
+			float: left;
+			margin: 8px 20px 0 0;
+		}
+	}
+}

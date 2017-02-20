@@ -9,6 +9,16 @@
 	    </div><!-- /.hero -->
 
 	    <div class="gallery-padding">
+	    	<h3>Current Images</h3>
+		    <div class="gallery__container">
+				{% for entry in craft.entries.section('gallery') %}
+					{% for block in entry.galleryImages %}
+		                <div class="item__gallery">
+	                        <img src="{{ block.url }}" alt="{{ block.title }}">
+		                </div>
+					{% endfor %}
+				{% endfor %}
+			</div>
 	    	<h3>Featured Galleries</h3>
             <div class="flex">
             	{% for entry in craft.entries.section('gallery').find() %}
@@ -21,18 +31,6 @@
                     </div>
 				{% endfor %}
             </div>
-	    	<h3>Current Images</h3>
-		    <div class="flex">
-				{% for entry in craft.entries.section('gallery') %}
-					{% for block in entry.galleryImages %}
-		                <div class="item item__gallery">
-		                    <div class="gallery-padding">
-		                        <img src="{{ block.url }}" alt="{{ block.title }}">
-		                    </div>
-		                </div>
-					{% endfor %}
-				{% endfor %}
-			</div>
 		</div>
 	</article>
 {% endblock %}

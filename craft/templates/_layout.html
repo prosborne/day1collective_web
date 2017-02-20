@@ -18,10 +18,16 @@
 
 <body {% if body is defined %} class="{{ body }}" {% endif %}">
 	<div id="container">
-	<header {% if craft.request.getLastSegment() == '' %}class="home-page"{% endif %}>
+		<header {% if craft.request.getLastSegment() == '' %}class="home-page"{% endif %}>
             <div class="logo">
                 <a {% if craft.request.getLastSegment() != '' %}href="/staging"{% endif %}><span></span></a>
             </div>
+{% if craft.request.getLastSegment() == '' %}
+            <div class="mobile-title">
+            	<img src="{{ siteUrl }}img/day1title.svg" title="Day 1 Collective" alt="Day 1 Collective">
+            	<img src="{{ siteUrl }}img/createandinspire.svg" title="Create & Inspire" alt="Create & Inspire">
+            </div>
+{% endif %}
             <nav>
                 <ul class="desktop left">
                     <li><a href="{{ siteUrl }}about" name="about">About</a></li>
@@ -38,14 +44,44 @@
                     <li class="mobile mobile__icon"></li>
                 </ul>
             </nav>
-            <div id="callus">Call Us!</div>
+{% if craft.request.getLastSegment() == '' %}
+            <div class="mobile-menu">
+            	<div class="flex">
+            		<div class="item mobile-nav">
+            			<a href="{{ siteUrl }}about" class="btn btn-nav">About</a>
+            		</div>
+            		<div class="item mobile-nav">
+            			<a href="{{ siteUrl }}gallery" class="btn btn-nav">Gallery</a>
+            		</div>
+            	</div>
+            	<div class="flex">
+            		<div class="item mobile-nav">
+            			<a href="{{ siteUrl }}experiences" class="btn btn-nav">Experience</a>
+            		</div>
+            		<div class="item mobile-nav">
+            			<a href="{{ siteUrl }}products" class="btn btn-nav">Products</a>
+            		</div>
+            	</div>
+            	<div class="flex">
+            		<div class="item mobile-nav">
+            			<a href="{{ siteUrl }}blog" class="btn btn-nav">Blog</a>
+            		</div>
+            		<div class="item mobile-nav">
+            			<a href="{{ siteUrl }}contact" class="btn btn-nav">Contact</a>
+            		</div>
+            	</div>
+            </div>
         </header>
-
+{% endif %}
 		<div id="content" role="main">
 			{% block content %}
 				
 			{% endblock %}
 		</div>
+
+		<footer>
+            <div><span></span></div>     
+        </footer>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="{{ siteUrl }}/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
@@ -64,12 +100,6 @@
 		    $(window).load(function(){
 		      $("header").sticky({ topSpacing: 0 });
 		    });
-		</script>
-		 <script>
-			$(function(){
-				Carousel.init($("#carousel"));
-				$("#carousel").init();
-			});
 		</script>
 	</div>
 </body>
