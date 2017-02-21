@@ -154,6 +154,31 @@ $(document).ready(function() {
     }
   });
 
+  // Slider for Gallery page
+  $('.gallery__container').slick({
+    centerMode: true,
+    slidesToShow: 5,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 900,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          slidesToShow: 1
+        }
+      }
+    ]
+  });
+
   $('.home-page .logo').click(function() {
     if (windowState > 900) {
       showMenu();
