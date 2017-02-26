@@ -22,6 +22,21 @@ function openMobile() {
   $(".mobile__icon").addClass("mobile__icon--close");
 }
 
+// GALLERY
+var gallerySelect = function(parent) {
+  var parentid = $('[data-parentid=' + parent + ']');
+  selectedCal = $('[data-galid=' + parent + ']');
+
+  // add active class to gallery poster to show which one is selected
+  $('.item__gallery--poster').removeClass('active');
+  parentid.addClass('active');
+  // hide all
+  $('.item__gallery').fadeOut(200);
+// show siblings of selecte poster
+  selectedCal.fadeIn(200);
+}
+
+
 // Show the hidden main navigation
 function showMenu() {
     var logo = $('.logo a span');
@@ -82,14 +97,6 @@ var homeElementSize = function(winWidth, winHeight) {
   // set height of element
   homeElementHeight("#booth", 39);
  }
-
-
-// gallery image swap main for thumbnail
-function gallery(gal_index, gal_img) {
-  var src = gal_img,
-  selector = $('*[data-main="' + gal_index + '"]');
-  selector.prop("src", src);
-}
 
 // load different page content on click
 function pages(e, name, state) {
@@ -159,6 +166,8 @@ $(document).ready(function() {
     centerMode: true,
     slidesToShow: 5,
     arrows: true,
+    prevArrow: '<button type="button" class="btn-prev"></button>',
+    nextArrow: '<button type="button" class="btn-next"></button>',
     responsive: [
       {
         breakpoint: 900,
@@ -178,6 +187,13 @@ $(document).ready(function() {
       }
     ]
   });
+
+  // Select individual gallery
+  $('.item__gallery--poster').click(function() {
+    var parentId = $(this).data('parentid');
+    console.log('parentId', parentId);
+    gallerySelect(parentId);
+  })
 
   $('.home-page .logo').click(function() {
     if (windowState > 900) {
@@ -215,6 +231,15 @@ $(document).ready(function() {
     var gal_img = $(this).attr("src");
     var gal_index = $(this).closest('[data-index]').attr('data-index');
     gallery(gal_index, gal_img);
+  });
+
+  // gallery
+  
+  $('div.item__gallery').featherlightGallery({
+      previousIcon: '&#9664;',     /* Code that is used as previous icon */
+      nextIcon: '&#9654;',         /* Code that is used as next icon */
+      galleryFadeIn: 100,          /* fadeIn speed when slide is loaded */
+      galleryFadeOut: 300          /* fadeOut speed before slide is loaded */
   });
 
 });

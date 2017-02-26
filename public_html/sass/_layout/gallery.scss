@@ -1,6 +1,6 @@
 #gallery {
 	.gallery-padding {
-		padding: calculateRem(15px);
+		padding: calculateRem(65px);
 		text-align: center;
 	}
 	.hero {
@@ -10,20 +10,37 @@
 			padding: calculateRem(20px);
 		}
 	}
+	.item__gallery {
+		height: calculateRem(100px);
+		margin: 1rem;
+		overflow: hidden;
+		&.item__gallery--filter {
+			width: 100%;
+		}
+		img {
+			max-width: 200px;
+			opacity: .8;
+			transition: opacity 0.5s;
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
 	.flex {
 		padding: calculateRem(15px);
 		margin-bottom: calculateRem(40px);
-		.item__gallery {
-			&.item__gallery--filter {
-				width: 100%;
+		.item__gallery--poster {
+			margin: 2%;
+			max-width: 46%;
+			max-height: 150px;
+    		overflow: hidden;
+			transition: border 0.5s;
+			&.active {
+				border: 4px solid $red-base;
 			}
 			img {
-				max-width: calculateRem(200px);
-				padding: calculateRem(15px) 0 calculateRem(15px) calculateRem(15px);
+				height: 100%;
 			}
-		}
-		.item__gallery--poster {
-			padding: calculateRem(20px);
 		}
 	}
 }

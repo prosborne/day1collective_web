@@ -2,7 +2,6 @@
 	color: $btn-text;
 	text-transform: uppercase;
 	border: 0;
-	text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
 	cursor: pointer;
 	padding: calculateRem(12px) calculateRem(20px);
 	font-weight: bold;
@@ -20,18 +19,6 @@
 	&.btn--info {
 		@include border-radius(5px);
 		background-color: $btn-info;
-	}
-	&.btn-nav {
-		display: block;
-		width: 100%;
-		@include border-radius(5px);
-		background-color: $btn-nav;
-		color: $white;
-	    text-align: center;
-    	padding: calculateRem(20px);
-    	&:hover {
-    		color: $white;
-    	}
 	}
 	&.btn--large {
 		display: inline-block;
@@ -60,4 +47,14 @@
 			margin: 8px 20px 0 0;
 		}
 	}
+}
+
+
+&.btn-next {
+	@include slider-btn(right);
+    right: -35px;
+}
+&.btn-prev {
+	@include slider-btn(left);
+    left: -25px;
 }
