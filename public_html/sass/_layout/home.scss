@@ -76,11 +76,11 @@
 
 			.wood-floor__workstation {
 				position: absolute;
-			    bottom: 57%;
-			    left: 25%;
+			    bottom: 49%;
+			    left: 28%;
 			    display: block;
 			    width: 31%;
-			    height: 20%;
+			    height: 60%;
 			    background: url(../img/wood-floor-workstation.png) no-repeat;
 			    background-size: cover;
 			    background-position: center center;
@@ -88,7 +88,7 @@
 			    cursor: pointer;
 			    z-index: 10;
 			    &:hover {
-					bottom: 70% !important;
+					bottom: 58% !important;
 			    }
 			}
 		}

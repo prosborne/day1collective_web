@@ -96,7 +96,7 @@ table {
   border-spacing: 0; }
 
 h1, h2, h3, h4 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Gotham A", "Gotham B";
   font-style: normal;
   font-weight: 700;
   display: block; }
@@ -118,7 +118,7 @@ body {
   font-size: 13px;
   font-size: 0.8125rem;
   color: #58595b;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "Gotham A", "Gotham B"; }
 
 a {
   color: #fbb040;
@@ -199,7 +199,6 @@ ul {
   color: #ead390;
   text-transform: uppercase;
   border: 0;
-  text-shadow: 0px 1px 1px black;
   cursor: pointer;
   padding: 0.75rem 1.25rem;
   font-weight: bold; }
@@ -218,18 +217,6 @@ ul {
     background-clip: padding-box;
     /* stops bg color from leaking outside the border: */
     background-color: #b33921; }
-  .btn.btn-nav {
-    display: block;
-    width: 100%;
-    border-radius: 5px;
-    background-clip: padding-box;
-    /* stops bg color from leaking outside the border: */
-    background-color: #963920;
-    color: #FFF;
-    text-align: center;
-    padding: 1.25rem; }
-    .btn.btn-nav:hover {
-      color: #FFF; }
   .btn.btn--large {
     display: inline-block;
     text-transform: capitalize;
@@ -261,6 +248,40 @@ ul {
         @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
           .no-svg .btn.btn__img .btn__img--reverb {
             background-image: url(../img/reverb-logo@2x.png); } }
+
+.btn-next {
+  display: block;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  background: url(../img/right-arrow.svg) no-repeat;
+  background-size: contain;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  padding: 0;
+  border: none;
+  outline: none;
+  right: -35px; }
+
+.btn-prev {
+  display: block;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  background: url(../img/left-arrow.svg) no-repeat;
+  background-size: contain;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  padding: 0;
+  border: none;
+  outline: none;
+  left: -25px; }
 
 #feature {
   text-align: center; }
@@ -681,19 +702,31 @@ footer {
     padding: 1.25rem; }
 
 #gallery .item__gallery {
-  height: 9.375rem;
-  margin: 2rem;
+  height: 6.25rem;
+  margin: 1rem;
   overflow: hidden; }
   #gallery .item__gallery.item__gallery--filter {
     width: 100%; }
   #gallery .item__gallery img {
-    max-width: 100%; }
+    max-width: 200px;
+    opacity: .8;
+    transition: opacity 0.5s; }
+    #gallery .item__gallery img:hover {
+      opacity: 1; }
 
 #gallery .flex {
   padding: 0.9375rem;
   margin-bottom: 2.5rem; }
   #gallery .flex .item__gallery--poster {
-    padding: 1.25rem; }
+    margin: 2%;
+    max-width: 46%;
+    max-height: 150px;
+    overflow: hidden;
+    transition: border 0.5s; }
+    #gallery .flex .item__gallery--poster.active {
+      border: 4px solid #963920; }
+    #gallery .flex .item__gallery--poster img {
+      height: 100%; }
 
 #blog .blog-padding {
   padding: 0.9375rem; }
@@ -832,11 +865,11 @@ footer {
         bottom: 60% !important; }
     .home #content .wood-floor .wood-floor__workstation {
       position: absolute;
-      bottom: 57%;
-      left: 25%;
+      bottom: 49%;
+      left: 28%;
       display: block;
       width: 31%;
-      height: 20%;
+      height: 60%;
       background: url(../img/wood-floor-workstation.png) no-repeat;
       background-size: cover;
       background-position: center center;
@@ -844,7 +877,7 @@ footer {
       cursor: pointer;
       z-index: 10; }
       .home #content .wood-floor .wood-floor__workstation:hover {
-        bottom: 70% !important; }
+        bottom: 58% !important; }
   .home #content .shade {
     z-index: 1;
     transition: all 2s;

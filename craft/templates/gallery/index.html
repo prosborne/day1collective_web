@@ -4,17 +4,13 @@
 
 {% block content %}
 	<article id="gallery" data-visible="false">
-	 	<div class="hero">
-	        <h1>Gallery</h1>
-	    </div><!-- /.hero -->
-
 	    <div class="gallery-padding">
-	    	<h3>Current Images</h3>
+	    	<h1>Gallery Images</h3>
 		    <div class="gallery__container">
 				{% for entry in craft.entries.section('gallery') %}
 					{% for block in entry.galleryImages %}
-		                <div class="item__gallery">
-	                        <img src="{{ block.url }}" alt="{{ block.title }}">
+		                <div class="item__gallery" data-galid="{{ entry.id }}">
+	                        <a data-featherlight="{{ block.url }}"><img src="{{ block.url }}" alt="{{ block.title }}"></a>
 		                </div>
 					{% endfor %}
 				{% endfor %}
@@ -22,12 +18,10 @@
 	    	<h3>Featured Galleries</h3>
             <div class="flex">
             	{% for entry in craft.entries.section('gallery').find() %}
-                    <div class="item item__gallery--poster">
-                    	<a href="{{ entry.url }}">
-                    		{% for image in entry.featureImage %}
-                    			<img src="{{ image.url }}" alt="{{ image.title }}" width="100%" />
-        					{% endfor %}
-                    	</a>
+                    <div class="item item__gallery--poster" data-parentid="{{ entry.id }}">
+                		{% for image in entry.featureImage %}
+                			<img src="{{ image.url }}" alt="{{ image.title }}"  width="100%" />
+    					{% endfor %}
                     </div>
 				{% endfor %}
             </div>

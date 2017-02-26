@@ -8,7 +8,11 @@
 	<meta name="description" content="">
     <link rel="icon" href="{{ siteUrl }}favicon.ico?v=2" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700|Quattrocento:400,700' rel='stylesheet' type='text/css'>
+
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.7.1/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.7.1/release/featherlight.gallery.min.css" type="text/css" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/6761956/7839372/css/fonts.css" />
     <link rel="stylesheet" href="{{ siteUrl }}css/jquery-ui.min.css">
     <link rel="stylesheet" href="{{ siteUrl }}css/jquery-ui.structure.min.css">
     <link rel="stylesheet" href="{{ siteUrl }}css/jquery-ui.theme.min.css">
@@ -17,6 +21,14 @@
 </head>
 
 <body {% if body is defined %} class="{{ body }}" {% endif %}">
+
+    <div class="mobile">
+        <div id="mobile_container">
+            
+        </div><!-- /#mobile_menu -->
+        <div id="mobile__fade"></div>
+    </div>
+
 	<div id="container">
 		<header {% if craft.request.getLastSegment() == '' %}class="home-page"{% endif %}>
             <div class="logo">
@@ -71,6 +83,7 @@
             		</div>
             	</div>
             </div>
+
         </header>
 {% endif %}
 		<div id="content" role="main">
@@ -80,7 +93,7 @@
 		</div>
 
 		<footer>
-            <div><span></span></div>     
+            <div><span class="mobile__icon"></span></div>     
         </footer>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -94,6 +107,9 @@
 		<script src="{{ siteUrl }}js/vendor/parallax.min.js"></script>
 		<script src="{{ siteUrl }}js/vendor/Carousel.js"></script>
 		<script src="{{ siteUrl }}js/vendor/TweenMax.min.js"></script>
+        <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.1/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.1/release/featherlight.gallery.min.js" type="text/javascript" charset="utf-8"></script>
+         <script src="//cdnjs.cloudflare.com/ajax/libs/detect_swipe/2.1.1/jquery.detect_swipe.min.js"></script>
 		<script src="{{ siteUrl }}js/plugins.js"></script>
 		<script src="{{ siteUrl }}js/main.js"></script>
 		<script>

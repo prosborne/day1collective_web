@@ -5,8 +5,11 @@
 
 {% block content %}
 	<article id="blog">
+		<div class="hero">
+            <img src="{{ siteUrl }}/img/blog.jpg" alt="Blog">
+        </div><!-- /.hero -->
 		{% for entry in craft.entries.section('blog') %}
-			<div class="blog-post">
+				<div class="blog-post">
 			 	{% for image in entry.hero %}
 		            <img src="{{ image.url }}" alt="{{ image.title }}">
 		        {% endfor %}
