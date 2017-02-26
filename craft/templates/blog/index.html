@@ -8,15 +8,18 @@
 		<div class="hero">
             <img src="{{ siteUrl }}/img/blog.jpg" alt="Blog">
         </div><!-- /.hero -->
+
 		{% for entry in craft.entries.section('blog') %}
-				<div class="blog-post">
+			<div class="blog__post">
+				<div class="blog__header">
+					<h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
+					<bdi class="blog__byline">by {{ entry.author }}</bdi>
+				</div>
 			 	{% for image in entry.hero %}
 		            <img src="{{ image.url }}" alt="{{ image.title }}">
 		        {% endfor %}
-				
-				<div class="blog-padding">
-					<h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
-					<p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
+				<div class="blog--padding">
+					<p class="blog__byline">Posted on {{ entry.postDate.format('F d, Y') }}</p>
 					{{ entry.body.getPage(1) }}
 					<p><a href="{{ entry.url }}">Continue reading</a></p>
 				</div>
