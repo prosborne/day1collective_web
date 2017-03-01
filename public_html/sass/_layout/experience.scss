@@ -1,17 +1,25 @@
 #experiences {
 
+	$contentPaddingBorderTop: 1px solid black;
+	
 	$upcomingEventsBorder: 1px solid black;
 	$upcomingEventHeight: calculateRem(200px);
 	$upcomingEventDetailBodyPadding: calculateRem(10px) 15% 0 calculateRem(10px);
 	$upcomingEventTitleHeight: 2em;
 	$upcomingEventTitleMarginBottom: calculateRem(5px);
 	$upcomingEventTitlePadding: 0;
-	$upcomingEventLinkPadding:calculateRem(10px);
+
+	$upcomingEventLinksContainerPaddingTop: calculateRem(30px);
+	$upcomingEventLinkPadding:calculateRem(5px) 0;//left and right do not need padding for the color to fill
 	$upcomingEventLinkTextColor:white;
+	$upcomingEventLinkTextWeight: 700;
 	$upcomingEventLinkFont:inherit;
 	$upcomingEventLinkMargin:calculateRem(5px) 0;
-	$upcomingEventLinkTicketsColor:red;
-	$upcomingEventLinkRSVPColor:orange;
+	$upcomingEventLinkTicketsColor:$red-base;
+	$upcomingEventLinkRSVPColor:$yellow-base;
+	$upcomingEventTitleFontType:georgia;
+	$upcomingEventTitleFontSize:9px;
+
 
 	$recentEventHeight: $upcomingEventHeight;
 
@@ -29,7 +37,7 @@
 		text-align: center;
 	}
 
-	.upcomingEvents .flex {
+	.experiences__upcomingEvents .flex {
 		.item__upcomingEvents{
 			.item__upcomingEvents--body{
 				margin:calculateRem(10px);//without this the body's of the upcoming events will touch
@@ -40,6 +48,7 @@
 
 			    //@todo upcomingEvents--img is a work in progress...
 				.item__upcomingEvents--img{
+					height:$upcomingEventHeight;//without setting the height, the image will not display when the event description is not visible.
 					background-size: cover;
 					background-repeat: no-repeat;
 					overflow:hidden;
@@ -53,8 +62,12 @@
 					.item__body{
 						padding: $upcomingEventDetailBodyPadding;  //don't let the content in the event box touch the edges.
 
+						.item__upcomingEvent--date{
+							font-type:$upcomingEventTitleFontType;
+							font-size:$upcomingEventTitleFontSize;
+						}
 
-						h4{
+						h4.item__upcomingEvent--title{
 						    height: $upcomingEventTitleHeight; //limit to two lines of text
 						    overflow: hidden; //hide the rest
 						    margin-bottom: $upcomingEventTitleMarginBottom;
@@ -63,14 +76,18 @@
 
 
 						.item__upcomingEvents--detailLinks{
+							padding-top:$upcomingEventLinksContainerPaddingTop;
+
 							a{
+								color:$upcomingEventLinkTextColor;
+								font-weight: $upcomingEventLinkTextWeight;
+//								font-family:$upcomingEventLinkFont;
 								text-decoration: none; //Don't have the underline
 								display:block; //without this they will not take up a whole line
 								padding:$upcomingEventLinkPadding; //This will make the link look like a button when the background color is applied.
-								color:$upcomingEventLinkTextColor;
-								font-family:$upcomingEventLinkFont;
 								margin:$upcomingEventLinkMargin;//without this there will be no spacing between the two links;
 								text-align: center;//without this the text will not display in the middle of the button.
+
 
 								&.item__upcomingEvetns--tickets{
 									background-color:$upcomingEventLinkTicketsColor;
@@ -86,7 +103,9 @@
 		}
 	}
 
-	.recentEvents{
+	.experiences__recentEvents{
+		border-top: $contentPaddingBorderTop;
+
 		.item__gallery{
 			height: $recentEventHeight;
     		margin: 1rem;
@@ -95,7 +114,9 @@
 	}
 
 
-	.askAboutUs{
+	.experiences__askAboutUs{
+		border-top: $contentPaddingBorderTop;
+
 		.flex .item{
 			flex: 1 0;
 			margin: calculateRem(30px) 10%;

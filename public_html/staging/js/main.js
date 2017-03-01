@@ -162,33 +162,6 @@ $(document).ready(function() {
     }
   });
 
-  // Slider for Gallery page
-  $('.recentEvents__container').slick({
-    centerMode: true,
-    slidesToShow: 3,
-    arrows: true,
-    prevArrow: '<button type="button" class="btn-prev"></button>',
-    nextArrow: '<button type="button" class="btn-next"></button>',
-    responsive: [
-      {
-        breakpoint: 900,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          slidesToShow: 2
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          slidesToShow: 1
-        }
-      }
-    ]
-  });
-
 
   // Slider for Gallery page
   $('.gallery__container').slick({
@@ -271,6 +244,46 @@ $(document).ready(function() {
       galleryFadeOut: 300          /* fadeOut speed before slide is loaded */
   });
 
+});
+
+
+
+//##################EXPERIENCES################
+
+  // Slider for Experiences page -- recent events section
+  $('#experiences .recentEvents__container').slick({
+    centerMode: true,
+    slidesToShow: 3,
+    arrows: true,
+    prevArrow: '<button type="button" class="btn-prev"></button>',
+    nextArrow: '<button type="button" class="btn-next"></button>',
+    responsive: [
+      {
+        breakpoint: 900,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          slidesToShow: 1
+        }
+      }
+    ]
+  });
+
+
+$('#experiences .item__upcomingEvents--img').on('mouseenter', function () {
+  $('.event', this).show();
+});
+
+$('#experiences .item__upcomingEvents--img').on('mouseleave', function () {
+  $('.event', this).hide();
 });
 
 $( window ).resize(function() {

@@ -2,46 +2,7 @@
 
 {% extends "_layout" %}
 
-
-{% set thumb = {
-    mode: 'crop',
-    width: 100,
-    height: 100,
-    quality: 75,
-    position: 'top-center'
-} %}
-
 {% block content %}
-<script type="text/javascript">
-  // Slider for Gallery page
-  /*$('.gallery__container').slick({
-    centerMode: true,
-    slidesToShow: 3,
-    arrows: true,
-    prevArrow: '<button type="button" class="btn-prev"></button>',
-    nextArrow: '<button type="button" class="btn-next"></button>',
-    responsive: [
-      {
-        breakpoint: 900,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          slidesToShow: 2
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          slidesToShow: 1
-        }
-      }
-    ]
-  });*/
-
-</script>
-
     <article id="experiences" data-visible="false">
         {% for entry in craft.entries.section('experiences').limit(1).find() %}
         <div class="hero">
@@ -52,8 +13,8 @@
         {% endfor %}
 
 
-        <div class="content--padding">
-            <div class="upcomingEvents">
+        <div class="content">
+            <div class="content--padding experiences__upcomingEvents">
                 <h3>Upcoming</h3>
                 <div class="flex">
                     {% for event in entry.upcomingEvents %}
@@ -63,7 +24,7 @@
                             {% for gallery in event.eventGallery %}
                                 {% for image in gallery.featureImage %}
                                     <div class="item__upcomingEvents--img" style="background-image: url({{ image.url }})">
-                                        <div class="event">
+                                        <div class="event" style="display:none;">
                                             {{ event.eventDescription }}
 
                                         </div>
@@ -73,10 +34,10 @@
 
                                 <div class="item__upcomingEvents--details">
                                     <div class="item__body">
-                                        <h4>
+                                        <h4 class="item__upcomingEvent--title">
                                             {{event.title}}
                                         </h4>
-                                        <span>
+                                        <span class="item__upcomingEvents--date">
                                             {{ event.eventDate|date("l, F dS") }}
                                         </span>
 
@@ -97,7 +58,7 @@
                 </div>
             </div>
 
-            <div class="recentEvents">
+            <div class="content--padding experiences__recentEvents">
                 <h3>Recent Events</h3>
                     <div class="recentEvents__container">
                     {% for event in entry.recentEvents %}
@@ -112,8 +73,10 @@
                 </div>
             </div>
 
-            <div class="askAboutUs">
-                <div class="flex content--padding">
+
+
+            <div class="content--padding experiences__askAboutUs">
+                <div class="flex">
 
                     <div class="item item__contact item__contact--body">
                     <h4>Ask About Us</h4>
@@ -140,17 +103,26 @@
                             {% endif %}
 
                             <div class="field-line">
-                              <label>First name:</label>
-                              <input placeholder="First Name" type="text" name="mcvars[FNAME]" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.vars.FNAME }}{% endif %}"/>
+                              <input placeholder="Name" type="text" name="mcvars[FNAME]" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.vars.FNAME }}{% endif %}"/>
                             </div>
 
                             <div class="field-line">
-                              <label>Last name:</label>
-                              <input placeholder="First Name" type="text" name="mcvars[LNAME]" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.vars.LNAME }}{% endif %}"/>
+                              <input placeholder="Company (Optional)" type="text" name="mcvars[FNAME]" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.vars.FNAME }}{% endif %}"/>
                             </div>
 
                             <div class="field-line">
-                              <label{% if (mailchimpSubscribe is defined) and (mailchimpSubscribe.errorCode=='1000') %} class="error"{% endif %}>Email:</label>
+                              <input placeholder="Phone" type="text" name="mcvars[FNAME]" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.vars.FNAME }}{% endif %}"/>
+                            </div>
+
+                            <div class="field-line">
+                              <input placeholder="Email" type="text" name="mcvars[FNAME]" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.vars.FNAME }}{% endif %}"/>
+                            </div>
+
+                            <div class="field-line">
+                              <input placeholder="Details" type="text" name="mcvars[FNAME]" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.vars.FNAME }}{% endif %}"/>
+                            </div>
+
+                            <div class="field-line">
                               <input placeholder="Email" type="text" name="email" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.email }}{% endif %}"/>
                             </div>
 
