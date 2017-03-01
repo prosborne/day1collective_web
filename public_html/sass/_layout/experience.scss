@@ -63,8 +63,10 @@
 						padding: $upcomingEventDetailBodyPadding;  //don't let the content in the event box touch the edges.
 
 						.item__upcomingEvent--date{
-							font-type:$upcomingEventTitleFontType;
+							font-family:$upcomingEventTitleFontType;
 							font-size:$upcomingEventTitleFontSize;
+							font-weight: bold;
+						    font-style: italic;
 						}
 
 						h4.item__upcomingEvent--title{
@@ -75,7 +77,7 @@
 						}
 
 
-						.item__upcomingEvents--detailLinks{
+						.item__upcomingEvent--detailLinks{
 							padding-top:$upcomingEventLinksContainerPaddingTop;
 
 							a{
@@ -89,10 +91,10 @@
 								text-align: center;//without this the text will not display in the middle of the button.
 
 
-								&.item__upcomingEvetns--tickets{
+								&.item__upcomingEvent--tickets{
 									background-color:$upcomingEventLinkTicketsColor;
 								}
-								&.item__upcomingEvetns--rsvp{
+								&.item__upcomingEvent--rsvp{
 									background-color:$upcomingEventLinkRSVPColor;
 								}
 							}
@@ -120,6 +122,18 @@
 		.flex .item{
 			flex: 1 0;
 			margin: calculateRem(30px) 10%;
+
+			&.item__contact--message{
+				text-align:center;
+			}
+
+			.field-line{
+				padding: calculateRem(10px) 0;
+
+				textarea, input{
+					width:calculateRem(150px);
+				}
+			}
 		}
 	}
 }

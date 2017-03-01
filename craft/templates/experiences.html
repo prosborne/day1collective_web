@@ -37,15 +37,17 @@
                                         <h4 class="item__upcomingEvent--title">
                                             {{event.title}}
                                         </h4>
-                                        <span class="item__upcomingEvents--date">
+                                        <span class="item__upcomingEvent--date">
                                             {{ event.eventDate|date("l, F dS") }}
                                         </span>
 
-                                        <div class="item__upcomingEvents--detailLinks">
-                                            <a class="item__upcomingEvetns--tickets" href="{{event.eventRSVPLink}}">
+                                        <div class="item__upcomingEvent--detailLinks">
+                                            {% if event.eventRSVPLink is defined %}
+                                            <a class="item__upcomingEvent--tickets" href="{{event.eventRSVPLink}}">
                                                 TICKETS {{event.eventRSVPLink}}
                                             </a>
-                                            <a class="item__upcomingEvetns--rsvp" href="{{event.eventTicketLink}}">
+                                            {% endif %}
+                                            <a class="item__upcomingEvent--rsvp" href="{{event.eventTicketLink}}">
                                                 RSVP {{event.eventTicketLink}}
                                             </a>
                                         </div>
@@ -78,15 +80,14 @@
             <div class="content--padding experiences__askAboutUs">
                 <div class="flex">
 
-                    <div class="item item__contact item__contact--body">
-                    <h4>Ask About Us</h4>
-                    <p>Sponsorship</p>
-                    <p>Perfoming</p>
-                    <p>Vending</p>
-                    <p>Collaborating</p>
-                    <p>Volunteering</p>
-                    <p>Email: <a href="mailto:{{ email.contactField }}">{{ email.contactField }}</a></p>
-
+                    <div class="item item__contact item__contact--message">
+                        <h4>Ask About Us</h4>
+                        <p>Sponsorship</p>
+                        <p>Perfoming</p>
+                        <p>Vending</p>
+                        <p>Collaborating</p>
+                        <p>Volunteering</p>
+                        <p>Email: <a href="mailto:{{ email.contactField }}">{{ email.contactField }}</a></p>
                     </div><!-- /.item -->
                     <aside class="item item__contact item__contact--form">
                         <form class="newsletter-form" action="" method="POST">
@@ -102,7 +103,7 @@
                               {% endif %}
                             {% endif %}
 
-                            <div class="field-line">
+                            <div class="field-line" style="padding-top:0;">
                               <input placeholder="Name" type="text" name="mcvars[FNAME]" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.vars.FNAME }}{% endif %}"/>
                             </div>
 
@@ -119,14 +120,10 @@
                             </div>
 
                             <div class="field-line">
-                              <input placeholder="Details" type="text" name="mcvars[FNAME]" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.vars.FNAME }}{% endif %}"/>
+                              <textarea rows="5" placeholder="Details" name="mcvars[FNAME]" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.vars.FNAME }}{% endif %}"></textarea>
                             </div>
 
-                            <div class="field-line">
-                              <input placeholder="Email" type="text" name="email" value="{% if (mailchimpSubscribe is defined) and (not mailchimpSubscribe.success) %}{{ mailchimpSubscribe.values.email }}{% endif %}"/>
-                            </div>
-
-                            <input type="submit" name="" class="btn btn--info" value="Subscribe"/>
+                            <input type="submit" name="" class="btn btn--info" value="Join Us"/>
                           </form>
                     </aside>
                 </div>
