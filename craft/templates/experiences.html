@@ -42,14 +42,16 @@
                                         </span>
 
                                         <div class="item__upcomingEvent--detailLinks">
-                                            {% if event.eventRSVPLink is defined %}
-                                            <a class="item__upcomingEvent--tickets" href="{{event.eventRSVPLink}}">
-                                                TICKETS {{event.eventRSVPLink}}
-                                            </a>
+                                            {% if event.eventRSVPLink is not empty %}
+                                                <a class="item__upcomingEvent--tickets" href="{{event.eventRSVPLink}}">
+                                                    RSVP
+                                                </a>
                                             {% endif %}
-                                            <a class="item__upcomingEvent--rsvp" href="{{event.eventTicketLink}}">
-                                                RSVP {{event.eventTicketLink}}
-                                            </a>
+                                            {% if event.eventTicketLink is not empty %}
+                                                <a class="item__upcomingEvent--rsvp" href="{{event.eventTicketLink}}">
+                                                    TICKETS
+                                                </a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -87,7 +89,7 @@
                         <p>Vending</p>
                         <p>Collaborating</p>
                         <p>Volunteering</p>
-                        <p>Email: <a href="mailto:{{ email.contactField }}">{{ email.contactField }}</a></p>
+                        <p><a href="mailto:{{ email.contactField }}">{{ email.contactField }}</a></p>
                     </div><!-- /.item -->
                     <aside class="item item__contact item__contact--form">
                         <form class="newsletter-form" action="" method="POST">
