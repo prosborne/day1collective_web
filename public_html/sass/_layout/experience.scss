@@ -1,24 +1,104 @@
 #experiences {
+
+	$upcomingEventsBorder: 1px solid black;
+	$upcomingEventHeight: calculateRem(200px);
+	$upcomingEventDetailBodyPadding: calculateRem(10px) 15% 0 calculateRem(10px);
+	$upcomingEventTitleHeight: 2em;
+	$upcomingEventTitleMarginBottom: calculateRem(5px);
+	$upcomingEventTitlePadding: 0;
+	$upcomingEventLinkPadding:calculateRem(10px);
+	$upcomingEventLinkTextColor:white;
+	$upcomingEventLinkFont:inherit;
+	$upcomingEventLinkMargin:calculateRem(5px) 0;
+	$upcomingEventLinkTicketsColor:red;
+	$upcomingEventLinkRSVPColor:orange;
+
+	$recentEventHeight: $upcomingEventHeight;
+
+	h1{
+		text-align: center;
+	}
+
+	h3{
+		text-align:center;
+	}
+
+	//@todo is this needed?
 	.product-padding {
 		padding: calculateRem(15px);
 		text-align: center;
 	}
-	.flex {
-		padding: calculateRem(15px);
-		.item__products {
-			&.item__products--filter {
-				width: 100%;
-			}
-			img {
-				max-width: calculateRem(200px);
-				padding: calculateRem(15px) 0 calculateRem(15px) calculateRem(15px);
-				max-width: 120px;
+
+	.upcomingEvents .flex {
+		.item__upcomingEvents{
+			.item__upcomingEvents--body{
+				margin:calculateRem(10px);//without this the body's of the upcoming events will touch
+				padding:0;//override "flex" padding style
+				border:  $upcomingEventsBorder;
+				height:$upcomingEventHeight;//without setting the height, the two upcoming events may display different height (based on the event description)
+			    overflow: hidden;//Without this the image and upcoming events description could display outside of the upcoming event box.
+
+			    //@todo upcomingEvents--img is a work in progress...
+				.item__upcomingEvents--img{
+					background-size: cover;
+					background-repeat: no-repeat;
+					overflow:hidden;
+					background-position: center center;
+				}
+
+
+				.item__upcomingEvents--details{
+
+					//@todo make this less generic?
+					.item__body{
+						padding: $upcomingEventDetailBodyPadding;  //don't let the content in the event box touch the edges.
+
+
+						h4{
+						    height: $upcomingEventTitleHeight; //limit to two lines of text
+						    overflow: hidden; //hide the rest
+						    margin-bottom: $upcomingEventTitleMarginBottom;
+						    padding: $upcomingEventTitlePadding;//remove the padding for the h4 tag (it was getting calculated into height);
+						}
+
+
+						.item__upcomingEvents--detailLinks{
+							a{
+								text-decoration: none; //Don't have the underline
+								display:block; //without this they will not take up a whole line
+								padding:$upcomingEventLinkPadding; //This will make the link look like a button when the background color is applied.
+								color:$upcomingEventLinkTextColor;
+								font-family:$upcomingEventLinkFont;
+								margin:$upcomingEventLinkMargin;//without this there will be no spacing between the two links;
+								text-align: center;//without this the text will not display in the middle of the button.
+
+								&.item__upcomingEvetns--tickets{
+									background-color:$upcomingEventLinkTicketsColor;
+								}
+								&.item__upcomingEvetns--rsvp{
+									background-color:$upcomingEventLinkRSVPColor;
+								}
+							}
+						}			
+					}
+				}
 			}
 		}
+	}
 
-		.item_product {
-			max-width: 25%;
+	.recentEvents{
+		.item__gallery{
+			height: $recentEventHeight;
+    		margin: 1rem;
+    		overflow: hidden;
+    	}
+	}
 
+
+	.askAboutUs{
+		.flex .item{
+			flex: 1 0;
+			margin: calculateRem(30px) 20%;
 		}
 	}
 }
