@@ -257,6 +257,7 @@ $(document).ready(function() {
     arrows: true,
     prevArrow: '<button type="button" class="btn-prev"></button>',
     nextArrow: '<button type="button" class="btn-next"></button>',
+    variableWidth: true,
     responsive: [
       {
         breakpoint: 900,
