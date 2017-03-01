@@ -34,6 +34,13 @@
 		&.item__gallery--poster {
 			@include flex-column($flex-grow: 1, $flex-shrink: 0, $justify-basis: 45%);
 		}
+		&.item__upcomingEvents {
+			@include flex-column($flex-grow: 1, $flex-shrink: 0, $justify-basis: 50%);
+			
+			.item__upcomingEvents--img, .item__upcomingEvents--details {
+				@include flex-column($flex-grow: 1, $flex-shrink: 0, $justify-basis: 50%);
+			}
+		}
 		.item__body {
 			position: relative;
 		}

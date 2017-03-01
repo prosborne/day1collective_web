@@ -359,13 +359,6 @@ ul {
   .flex .item.item__about--body {
     flex: 2 0;
     display: block; }
-  .flex .item.item__contact {
-    flex: 2 0 50%;
-    display: block;
-    padding: 0 0 2rem; }
-  .flex .item.item__address {
-    flex: 2 0 50%;
-    display: block; }
   .flex .item.item__hero {
     flex: 2 0 50%;
     display: block;
@@ -386,54 +379,13 @@ ul {
     position: relative; }
 
 #social {
-  width: auto;
-  margin: 0 auto;
-  justify-content: center !important; }
+  text-align: center; }
   #social .item__social a {
     display: block;
+    background-color: #333;
     height: 2rem;
     width: 2rem;
     margin: 1.25rem; }
-  #social .item__social.item--facebook span {
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    background: url(../img/facebook.svg) no-repeat;
-    background-size: cover; }
-  #social .item__social.item--twitter span {
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    background: url(../img/twitter.svg) no-repeat;
-    background-size: cover; }
-  #social .item__social.item--instagram span {
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    background: url(../img/instagram.svg) no-repeat;
-    background-size: cover; }
-  #social .item__social.item--gplus span {
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    background: url(../img/gplus.svg) no-repeat;
-    background-size: cover; }
-  #social .item__social.item--youtube span {
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    background: url(../img/youtube.svg) no-repeat;
-    background-size: cover; }
-
-form label {
-  display: none; }
-
-form input[type="text"] {
-  padding: 0.375rem 0.625rem;
-  border: 1px solid #f2f2f3;
-  display: block;
-  width: 100%;
-  margin-bottom: 1.25rem; }
 
 header {
   max-width: 900px;
@@ -692,7 +644,7 @@ footer {
     max-width: 25%; }
 
 #gallery .gallery-padding {
-  padding: 4.0625rem;
+  padding: 0.9375rem;
   text-align: center; }
 
 #gallery .hero {
@@ -717,6 +669,11 @@ footer {
 #gallery .flex {
   padding: 0.9375rem;
   margin-bottom: 2.5rem; }
+  #gallery .flex .item__gallery.item__gallery--filter {
+    width: 100%; }
+  #gallery .flex .item__gallery img {
+    max-width: 12.5rem;
+    padding: 0.9375rem 0 0.9375rem 0.9375rem; }
   #gallery .flex .item__gallery--poster {
     margin: 2%;
     max-width: 46%;
@@ -742,44 +699,16 @@ footer {
   #blog .flex .item_product {
     max-width: 25%; }
 
-#contact p {
-  margin: 0;
-  padding: 0;
-  line-height: 1.8; }
-
-#contact a {
-  color: #963920;
-  font-weight: 200; }
-
-#contact h3 {
-  padding-bottom: 0.375rem !important; }
-
 #contact .product-contact {
   padding: 0.9375rem;
   text-align: center; }
 
-#contact .flex .item__contact img {
-  max-width: 12.5rem;
-  padding: 0.9375rem 0 0.9375rem 0.9375rem;
-  max-width: 120px; }
-
-#contact .flex .item__contact.item__contact--body {
-  text-align: center; }
-
-#contact .flex#social {
-  padding-bottom: 0; }
-
-#contact .flex#address {
-  justify-content: center !important;
-  align-items: center !important;
-  text-align: center;
-  padding-bottom: 4.0625rem; }
-  #contact .flex#address .item__address--body h3 {
-    font-size: 1rem;
-    text-transform: uppercase;
-    font-weight: 400; }
-  #contact .flex#address .item__address--map iframe {
-    border: 1px solid #f2f2f3; }
+#contact .flex {
+  padding: 0.9375rem; }
+  #contact .flex .item__contact img {
+    max-width: 12.5rem;
+    padding: 0.9375rem 0 0.9375rem 0.9375rem;
+    max-width: 120px; }
 
 #experiences .product-padding {
   padding: 0.9375rem;
