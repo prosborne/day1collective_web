@@ -182,8 +182,7 @@ ul {
       padding-bottom: 1.875rem; }
 
 .hero {
-  display: block;
-  max-height: 14.625rem; }
+  display: block; }
   .hero img {
     width: 100%;
     border-bottom: 0.5rem solid #963920; }
@@ -359,6 +358,13 @@ ul {
   .flex .item.item__about--body {
     flex: 2 0;
     display: block; }
+  .flex .item.item__contact {
+    flex: 2 0 50%;
+    display: block;
+    padding: 0 0 2rem; }
+  .flex .item.item__address {
+    flex: 2 0 50%;
+    display: block; }
   .flex .item.item__hero {
     flex: 2 0 50%;
     display: block;
@@ -379,13 +385,54 @@ ul {
     position: relative; }
 
 #social {
-  text-align: center; }
+  width: auto;
+  margin: 0 auto;
+  justify-content: center !important; }
   #social .item__social a {
     display: block;
-    background-color: #333;
     height: 2rem;
     width: 2rem;
     margin: 1.25rem; }
+  #social .item__social.item--facebook span {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background: url(../img/facebook.svg) no-repeat;
+    background-size: cover; }
+  #social .item__social.item--twitter span {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background: url(../img/twitter.svg) no-repeat;
+    background-size: cover; }
+  #social .item__social.item--instagram span {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background: url(../img/instagram.svg) no-repeat;
+    background-size: cover; }
+  #social .item__social.item--gplus span {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background: url(../img/gplus.svg) no-repeat;
+    background-size: cover; }
+  #social .item__social.item--youtube span {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background: url(../img/youtube.svg) no-repeat;
+    background-size: cover; }
+
+form label {
+  display: none; }
+
+form input[type="text"] {
+  padding: 0.375rem 0.625rem;
+  border: 1px solid #f2f2f3;
+  display: block;
+  width: 100%;
+  margin-bottom: 1.25rem; }
 
 header {
   max-width: 900px;
@@ -438,7 +485,7 @@ header {
         text-transform: uppercase; }
       header nav ul li strong {
         color: #fbb040;
-        font-weight: 900; }
+        font-weight: 700; }
   header .logo a span {
     background-image: url(../img/day1collective_logo.svg);
     background-size: contain;
@@ -644,7 +691,7 @@ footer {
     max-width: 25%; }
 
 #gallery .gallery-padding {
-  padding: 0.9375rem;
+  padding: 4.0625rem;
   text-align: center; }
 
 #gallery .hero {
@@ -669,11 +716,6 @@ footer {
 #gallery .flex {
   padding: 0.9375rem;
   margin-bottom: 2.5rem; }
-  #gallery .flex .item__gallery.item__gallery--filter {
-    width: 100%; }
-  #gallery .flex .item__gallery img {
-    max-width: 12.5rem;
-    padding: 0.9375rem 0 0.9375rem 0.9375rem; }
   #gallery .flex .item__gallery--poster {
     margin: 2%;
     max-width: 46%;
@@ -685,8 +727,26 @@ footer {
     #gallery .flex .item__gallery--poster img {
       height: 100%; }
 
-#blog .blog-padding {
-  padding: 0.9375rem; }
+#blog .blog__post h3 {
+  padding-bottom: 0; }
+  #blog .blog__post h3 a {
+    color: #963920; }
+    #blog .blog__post h3 a :hover {
+      color: #963920; }
+
+#blog .blog__post .blog__header {
+  padding: 2.1875rem 3.4375rem; }
+
+#blog .blog__post .blog__byline {
+  font-size: 12px;
+  line-height: 1.8;
+  font-style: italic;
+  font-family: "Georgia", sarif;
+  color: #58595b;
+  padding-left: 1.875rem; }
+
+#blog .blog--padding {
+  padding: 2.1875rem 3.4375rem; }
 
 #blog .flex {
   padding: 0.9375rem; }
@@ -699,31 +759,94 @@ footer {
   #blog .flex .item_product {
     max-width: 25%; }
 
+#contact p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.8; }
+
+#contact a {
+  color: #963920;
+  font-weight: 200; }
+
+#contact h3 {
+  padding-bottom: 0.375rem !important; }
+
 #contact .product-contact {
   padding: 0.9375rem;
   text-align: center; }
 
-#contact .flex {
-  padding: 0.9375rem; }
-  #contact .flex .item__contact img {
-    max-width: 12.5rem;
-    padding: 0.9375rem 0 0.9375rem 0.9375rem;
-    max-width: 120px; }
+#contact .flex .item__contact img {
+  max-width: 12.5rem;
+  padding: 0.9375rem 0 0.9375rem 0.9375rem;
+  max-width: 120px; }
+
+#contact .flex .item__contact.item__contact--body {
+  text-align: center; }
+
+#contact .flex#social {
+  padding-bottom: 0; }
+
+#contact .flex#address {
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+  padding-bottom: 4.0625rem; }
+  #contact .flex#address .item__address--body h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 400; }
+  #contact .flex#address .item__address--map iframe {
+    border: 1px solid #f2f2f3; }
+
+#experiences h1 {
+  text-align: center; }
+
+#experiences h3 {
+  text-align: center; }
 
 #experiences .product-padding {
   padding: 0.9375rem;
   text-align: center; }
 
-#experiences .flex {
-  padding: 0.9375rem; }
-  #experiences .flex .item__products.item__products--filter {
-    width: 100%; }
-  #experiences .flex .item__products img {
-    max-width: 12.5rem;
-    padding: 0.9375rem 0 0.9375rem 0.9375rem;
-    max-width: 120px; }
-  #experiences .flex .item_product {
-    max-width: 25%; }
+#experiences .upcomingEvents .flex .item__upcomingEvents .item__upcomingEvents--body {
+  margin: 0.625rem;
+  padding: 0;
+  border: 1px solid black;
+  height: 12.5rem;
+  overflow: hidden; }
+  #experiences .upcomingEvents .flex .item__upcomingEvents .item__upcomingEvents--body .item__upcomingEvents--img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-position: center center; }
+  #experiences .upcomingEvents .flex .item__upcomingEvents .item__upcomingEvents--body .item__upcomingEvents--details .item__body {
+    padding: 0.625rem 15% 0 0.625rem; }
+    #experiences .upcomingEvents .flex .item__upcomingEvents .item__upcomingEvents--body .item__upcomingEvents--details .item__body h4 {
+      height: 2em;
+      overflow: hidden;
+      margin-bottom: 0.3125rem;
+      padding: 0; }
+    #experiences .upcomingEvents .flex .item__upcomingEvents .item__upcomingEvents--body .item__upcomingEvents--details .item__body .item__upcomingEvents--detailLinks a {
+      text-decoration: none;
+      display: block;
+      padding: 0.625rem;
+      color: white;
+      font-family: inherit;
+      margin: 0.3125rem 0;
+      text-align: center; }
+      #experiences .upcomingEvents .flex .item__upcomingEvents .item__upcomingEvents--body .item__upcomingEvents--details .item__body .item__upcomingEvents--detailLinks a.item__upcomingEvetns--tickets {
+        background-color: red; }
+      #experiences .upcomingEvents .flex .item__upcomingEvents .item__upcomingEvents--body .item__upcomingEvents--details .item__body .item__upcomingEvents--detailLinks a.item__upcomingEvetns--rsvp {
+        background-color: orange; }
+
+#experiences .recentEvents .item__gallery {
+  height: 12.5rem;
+  margin: 1rem;
+  overflow: hidden; }
+
+#experiences .askAboutUs .flex .item {
+  flex: 1 0;
+  margin: 1.875rem 20%; }
 
 .home #home_content {
   display: block;

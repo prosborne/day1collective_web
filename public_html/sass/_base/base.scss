@@ -96,7 +96,6 @@ ul {
 
 .hero {
 	display: block;
-	max-height: calculateRem(234px);
 	img {
 		width: 100%;
 		border-bottom: calculateRem(8px) solid $red-base;
